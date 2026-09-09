@@ -50,7 +50,12 @@ export const metadata: Metadata = {
     type: "website",
   },
   icons: {
-    icon: "/images/SANTOS LOGO.png",
+    icon: [
+      { url: "/images/icone pagina.png" },
+      { url: "/favicon.ico" },
+    ],
+    shortcut: "/images/icone pagina.png",
+    apple: "/images/icone pagina.png",
   },
 };
 
