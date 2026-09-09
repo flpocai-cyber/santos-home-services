@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Hammer, Grid, Shield, Layers, Paintbrush, Square } from "lucide-react";
+import { ArrowRight, Hammer, Grid, Shield, Layers, Paintbrush, Square, Disc3 } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
 interface Props {
@@ -21,6 +21,7 @@ export function ServicesSection({ currentLocale, onOpenQuote }: Props) {
     Layers: <Layers className="h-5 w-5" />,
     Paintbrush: <Paintbrush className="h-5 w-5" />,
     Square: <Square className="h-5 w-5" />,
+    Disc3: <Disc3 className="h-5 w-5" />,
   };
 
   return (

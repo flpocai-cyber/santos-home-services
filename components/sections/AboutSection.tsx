@@ -85,7 +85,7 @@ export function AboutSection({ currentLocale }: Props) {
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
               <div>
                 <span className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#0089D0] font-heading block">
-                  <StatsCounter value={6} duration={1800} />
+                  <StatsCounter value={parseInt(t.stat1Number) || 7} duration={1800} />
                 </span>
                 <span className="block mt-1 text-xs font-bold uppercase tracking-wider text-white">
                   {t.stat1Label}

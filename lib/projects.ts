@@ -1,6 +1,6 @@
 export interface ProjectItem {
   id: string;
-  category: "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry";
+  category: "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring";
   title: {
     en: string;
     pt: string;
@@ -153,5 +153,27 @@ export const projectsData: ProjectItem[] = [
       es: "Colocación, encintado y enlucido de drywall en espacios abiertos. Acabado nivel 5 ultra liso que elimina sombras y uniones bajo cualquier tipo de luz.",
     },
     highlights: ["Level 5 Skim Coating", "Concealed Joints", "Reinforced Corner Beads", "Dustless Sanding"],
+  },
+  {
+    id: "proj-7",
+    category: "flooring",
+    title: {
+      en: "Luxury Hardwood Flooring & Custom Tile Installation",
+      pt: "Pisos em Madeira Nobre e Instalação de Porcelanato",
+      es: "Pisos de Madera Noble e Instalación de Azulejos",
+    },
+    location: "Danbury, CT",
+    type: {
+      en: "Flooring & Tiles",
+      pt: "Pisos e Azulejos",
+      es: "Pisos y Azulejos",
+    },
+    image: "/images/hardwood flooring.png",
+    description: {
+      en: "Complete interior flooring transformation combining precision engineered hardwood planks with custom large-format porcelain tile transitions. Featuring self-leveling subfloor preparation, moisture barrier underlayment, seamless flush transitions, and durable commercial-grade protective sealing.",
+      pt: "Transformação completa de pisos residenciais unindo réguas de madeira nobre e transição precisa para porcelanatos de grande formato. Inclui nivelamento fino de contrapiso, manta com barreira contra umidade, acabamento nivelado sem desníveis e impermeabilização de alta durabilidade.",
+      es: "Renovación integral de pisos combinando madera noble con transiciones a azulejos y porcelanatos de gran formato. Incluye autonivelación de contrapisos, membrana antihumedad, juntas de precisión y sellado de alta resistencia.",
+    },
+    highlights: ["Engineered Hardwood", "Porcelain Tile Transitions", "Self-Leveling Subfloor", "Moisture Barrier"],
   },
 ];
