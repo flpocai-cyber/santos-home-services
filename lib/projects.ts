@@ -1,6 +1,6 @@
 export interface ProjectItem {
   id: string;
-  category: "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring";
+  category: "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles";
   title: {
     en: string;
     pt: string;
@@ -158,22 +158,44 @@ export const projectsData: ProjectItem[] = [
     id: "proj-7",
     category: "flooring",
     title: {
-      en: "Luxury Hardwood Flooring & Custom Tile Installation",
-      pt: "Pisos em Madeira Nobre e Instalação de Porcelanato",
-      es: "Pisos de Madera Noble e Instalación de Azulejos",
+      en: "Luxury Natural Oak Hardwood Flooring",
+      pt: "Pisos em Madeira Nobre Carvalho Natural",
+      es: "Pisos de Madera Noble Roble Natural",
     },
     location: "Danbury, CT",
     type: {
-      en: "Flooring & Tiles",
-      pt: "Pisos e Azulejos",
-      es: "Pisos y Azulejos",
+      en: "Flooring",
+      pt: "Flooring",
+      es: "Flooring",
     },
     image: "/images/hardwood flooring.png",
     description: {
-      en: "Complete interior flooring transformation combining precision engineered hardwood planks with custom large-format porcelain tile transitions. Featuring self-leveling subfloor preparation, moisture barrier underlayment, seamless flush transitions, and durable commercial-grade protective sealing.",
-      pt: "Transformação completa de pisos residenciais unindo réguas de madeira nobre e transição precisa para porcelanatos de grande formato. Inclui nivelamento fino de contrapiso, manta com barreira contra umidade, acabamento nivelado sem desníveis e impermeabilização de alta durabilidade.",
-      es: "Renovación integral de pisos combinando madera noble con transiciones a azulejos y porcelanatos de gran formato. Incluye autonivelación de contrapisos, membrana antihumedad, juntas de precisión y sellado de alta resistencia.",
+      en: "Precision-installed natural oak engineered hardwood planks across open living and dining spaces. Featuring acoustic underlayment, subfloor leveling, expansion gap compliance, and custom flush threshold transitions.",
+      pt: "Instalação de alta precisão de réguas em madeira nobre carvalho natural em salas integradas. Inclui nivelamento perfeito de contrapiso, manta acústica, juntas de dilatação adequadas e acabamento impecável de soleiras.",
+      es: "Instalación de pisos de madera noble de roble natural en áreas abiertas. Cuenta con aislamiento acústico, nivelación previa de superficie, zócalos combinados y transiciones al ras de máxima durabilidad.",
     },
-    highlights: ["Engineered Hardwood", "Porcelain Tile Transitions", "Self-Leveling Subfloor", "Moisture Barrier"],
+    highlights: ["Select Natural Oak", "Acoustic Underlayment", "Subfloor Leveling", "Custom Flush Transitions"],
+  },
+  {
+    id: "proj-8",
+    category: "tiles",
+    title: {
+      en: "Master Bathroom Large-Format Porcelain Tiles",
+      pt: "Porcelanato de Grande Formato em Suíte Master",
+      es: "Porcelanato y Azulejos de Gran Formato en Suite",
+    },
+    location: "Ridgefield, CT",
+    type: {
+      en: "Tiles",
+      pt: "Tiles",
+      es: "Tiles",
+    },
+    image: "/images/custom tiles bathroom.png",
+    description: {
+      en: "Complete master bathroom luxury tile renovation. Large-format Italian marble-style porcelain slabs installed floor-to-ceiling, waterproof schluter membrane systems, curbless walk-in shower pan slope, and built-in recessed niche shelving.",
+      pt: "Reforma completa e luxuosa de revestimentos em suíte master. Placas de porcelanato de grande formato com efeito mármore do chão ao teto, impermeabilização com sistema Schluter, box nivelado com ralo linear oculto e nichos embutidos sob medida.",
+      es: "Renovación completa de baño principal con azulejos y porcelanatos de gran formato. Revestimiento de piso a techo con diseño de mármol, membrana impermeable de alta tecnología, ducha a ras de piso con desagüe lineal y nicho iluminado.",
+    },
+    highlights: ["Large-Format Porcelain", "Waterproof Schluter System", "Curbless Shower Pan", "Precision Miter Corners"],
   },
 ];

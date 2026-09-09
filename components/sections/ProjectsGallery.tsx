@@ -25,7 +25,8 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
     { key: "paint", label: t.filters.paint },
     { key: "drywall", label: t.filters.drywall },
     { key: "carpentry", label: t.filters.carpentry },
-    { key: "flooring", label: (t.filters as any).flooring || "FLOORING & TILES" },
+    { key: "flooring", label: (t.filters as any).flooring || "FLOORING" },
+    { key: "tiles", label: (t.filters as any).tiles || "TILES" },
   ];
 
   const filteredProjects =

@@ -215,7 +215,8 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
                     <option value="framing">{t.options.framing}</option>
                     <option value="painting">{t.options.painting}</option>
                     <option value="drywall">{t.options.drywall}</option>
-                    <option value="flooring">{(t.options as any).flooring || "Flooring & Tiles"}</option>
+                    <option value="flooring">{(t.options as any).flooring || "Flooring"}</option>
+                    <option value="tiles">{(t.options as any).tiles || "Tiles"}</option>
                     <option value="other">{t.options.other}</option>
                   </select>
                 </div>
