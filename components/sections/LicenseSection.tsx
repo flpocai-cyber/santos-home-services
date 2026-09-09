@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ShieldCheck, Award, AlertCircle, ExternalLink } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -17,7 +18,13 @@ export function LicenseSection({ currentLocale }: Props) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16 items-center">
           {/* License Block */}
-          <div className="rounded-3xl border border-[#0089D0]/30 bg-[#001D2B]/90 p-8 sm:p-10 shadow-2xl relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="rounded-3xl border border-[#0089D0]/30 bg-[#001D2B]/90 p-8 sm:p-10 shadow-2xl relative overflow-hidden"
+          >
             <div className="flex items-center gap-3">
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#006A9E] text-white">
                 <ShieldCheck className="h-6 w-6" />
@@ -42,10 +49,16 @@ export function LicenseSection({ currentLocale }: Props) {
               <AlertCircle className="h-4 w-4 text-[#0089D0] flex-shrink-0 mt-0.5" />
               <p>{t.note}</p>
             </div>
-          </div>
+          </motion.div>
 
           {/* BuildZoom Block */}
-          <div className="rounded-3xl border border-[#0089D0]/30 bg-[#001D2B]/90 p-8 sm:p-10 shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="rounded-3xl border border-[#0089D0]/30 bg-[#001D2B]/90 p-8 sm:p-10 shadow-2xl"
+          >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[#0089D0] text-white">
@@ -81,7 +94,7 @@ export function LicenseSection({ currentLocale }: Props) {
               <AlertCircle className="h-4 w-4 text-[#0089D0] flex-shrink-0 mt-0.5" />
               <p>{t.bzDisclaimer}</p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useEffect, useState, useRef } from "react";
 import { useInView } from "framer-motion";
@@ -44,9 +44,9 @@ export function StatsCounter({
   }, [isInView, value, duration]);
 
   return (
-    <span ref={ref} className={`font-serif tracking-tight ${className}`}>
+    <span ref={ref} className={`font-heading tracking-tight ${className}`}>
       {prefix}
-      {count.toLocaleString("pt-BR")}
+      {count.toLocaleString("en-US")}
       {suffix}
     </span>
   );

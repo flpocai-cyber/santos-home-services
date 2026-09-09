@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Award, Clock, CheckCircle, Sliders, MapPin, HeartHandshake } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -24,7 +25,13 @@ export function WhyChooseUs({ currentLocale }: Props) {
     <section className="relative bg-[#001D2B] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -34,13 +41,17 @@ export function WhyChooseUs({ currentLocale }: Props) {
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* 6 Minimalist Luxury Cards */}
         <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, index) => (
-            <div
+            <motion.div
               key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
               className="group relative rounded-2xl border border-white/10 bg-[#071820]/70 p-8 transition-all duration-300 hover:border-[#0089D0]/50 hover:bg-[#071820] hover:-translate-y-1.5 hover:shadow-xl"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#001D2B] border border-[#0089D0]/30 transition-colors group-hover:border-[#0089D0]">
@@ -53,7 +64,7 @@ export function WhyChooseUs({ currentLocale }: Props) {
               <p className="mt-2.5 text-sm leading-relaxed text-[#DDF3FF]/75">
                 {item.desc}
               </p>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

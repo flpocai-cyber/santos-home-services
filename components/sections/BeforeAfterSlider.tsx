@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { MoveHorizontal } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -38,7 +39,13 @@ export function BeforeAfterSlider({ currentLocale }: Props) {
     <section id="before-after" className="relative bg-[#071820] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -48,10 +55,16 @@ export function BeforeAfterSlider({ currentLocale }: Props) {
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Interactive Slider Container */}
-        <div className="mt-16 mx-auto max-w-5xl">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.8 }}
+          className="mt-16 mx-auto max-w-5xl"
+        >
           <div
             ref={containerRef}
             data-cursor="DRAG"
@@ -121,7 +134,7 @@ export function BeforeAfterSlider({ currentLocale }: Props) {
               <span className="font-bold text-[#0089D0] uppercase">{t.afterLabel}:</span> {t.afterDesc}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

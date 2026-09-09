@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Send, CheckCircle2, AlertCircle, Phone, MessageSquare, MessageCircle, MapPin } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -69,7 +70,13 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
     <section id="contact" className="relative bg-[#071820] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -79,11 +86,17 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-16">
           {/* FORM (7 cols) */}
-          <div className="lg:col-span-7 rounded-3xl border border-white/15 bg-[#001D2B] p-8 sm:p-12 shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7 }}
+            className="lg:col-span-7 rounded-3xl border border-white/15 bg-[#001D2B] p-8 sm:p-12 shadow-2xl"
+          >
             {submitted ? (
               <div className="py-12 text-center">
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#0089D0]/20 text-[#0089D0] mb-6">
@@ -270,10 +283,16 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
                 </button>
               </form>
             )}
-          </div>
+          </motion.div>
 
           {/* MAP & LOCATION INFO (5 cols) */}
-          <div className="lg:col-span-5 flex flex-col rounded-3xl border border-white/15 bg-[#001D2B] p-8 sm:p-10 shadow-2xl">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, delay: 0.15 }}
+            className="lg:col-span-5 flex flex-col rounded-3xl border border-white/15 bg-[#001D2B] p-8 sm:p-10 shadow-2xl"
+          >
             <div>
               <span className="text-xs font-bold tracking-widest text-[#0089D0] uppercase">
                 {tMap.tag}
@@ -342,7 +361,7 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
                 <span className="text-[10px] font-bold uppercase tracking-wider">{tMap.whatsapp}</span>
               </a>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, MapPin, X, CheckCircle2, ShieldCheck } from "lucide-react";
 import { projectsData, type ProjectItem } from "@/lib/projects";
 import { translations, type Locale } from "@/lib/translations";
@@ -35,7 +36,13 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
     <section id="projects" className="relative bg-[#071820] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -45,10 +52,16 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Filter Pills */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-2">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mt-12 flex flex-wrap items-center justify-center gap-2"
+        >
           {categories.map((cat) => (
             <button
               key={cat.key}
@@ -62,13 +75,17 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
               {cat.label}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
         <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {filteredProjects.map((proj) => (
-            <div
+          {filteredProjects.map((proj, idx) => (
+            <motion.div
               key={proj.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: idx * 0.08 }}
               data-cursor="VIEW"
               onClick={() => setSelectedProject(proj)}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#001D2B] shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#0089D0]/60 cursor-pointer"
@@ -111,7 +128,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

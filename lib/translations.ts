@@ -400,7 +400,7 @@ export const translations = {
     },
     projects: {
       tag: "PROJETOS RECENTES",
-      title: "Artesanato na Prática",
+      title: "Projetos na Prática",
       subtitle: "Conheça alguns dos projetos concluídos em Danbury e região de Fairfield County.",
       viewProject: "VER PROJETO",
       filters: {

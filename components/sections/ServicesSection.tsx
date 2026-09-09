@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, Hammer, Grid, Shield, Layers, Paintbrush, Square } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -26,7 +27,13 @@ export function ServicesSection({ currentLocale, onOpenQuote }: Props) {
     <section id="services" className="relative bg-[#001D2B] py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -36,13 +43,17 @@ export function ServicesSection({ currentLocale, onOpenQuote }: Props) {
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* 6 Premium Cards */}
         <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {t.items.map((item, index) => (
-            <div
+            <motion.div
               key={item.id}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               data-cursor="VIEW"
               className="group relative flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#071820]/90 transition-all duration-300 hover:-translate-y-2 hover:border-[#0089D0]/60 hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
             >
@@ -88,7 +99,7 @@ export function ServicesSection({ currentLocale, onOpenQuote }: Props) {
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { MessageCircle, MessageSquare, Phone, ArrowRight } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -19,7 +20,13 @@ export function CTASection({ currentLocale, onOpenQuote }: Props) {
       {/* Background radial gradient glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,137,208,0.15),transparent_70%)] pointer-events-none" />
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 mx-auto max-w-5xl px-4 text-center sm:px-6 lg:px-8"
+      >
         <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-5xl font-heading leading-tight">
           {t.title}
         </h2>
@@ -63,7 +70,7 @@ export function CTASection({ currentLocale, onOpenQuote }: Props) {
             <span>{t.btnCall}</span>
           </a>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

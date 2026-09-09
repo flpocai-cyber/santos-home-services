@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { reviews } from "@/lib/reviews";
 import { translations, type Locale } from "@/lib/translations";
@@ -42,7 +43,13 @@ export function ReviewsCarousel({ currentLocale }: Props) {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="mx-auto max-w-2xl text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-2xl text-center"
+        >
           <span className="inline-block rounded-full bg-[#006A9E]/20 px-3.5 py-1 text-xs font-bold tracking-widest text-[#0089D0] uppercase border border-[#0089D0]/30">
             {t.tag}
           </span>
@@ -52,10 +59,16 @@ export function ReviewsCarousel({ currentLocale }: Props) {
           <p className="mt-4 text-base text-[#DDF3FF]/80 sm:text-lg">
             {t.subtitle}
           </p>
-        </div>
+        </motion.div>
 
         {/* Carousel Card Container */}
-        <div className="mt-16 mx-auto max-w-3xl">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          transition={{ duration: 0.7 }}
+          className="mt-16 mx-auto max-w-3xl"
+        >
           <div className="relative rounded-3xl bg-white p-8 sm:p-12 text-[#001D2B] shadow-2xl transition-all duration-300">
             {/* 5 Stars */}
             <div className="flex items-center gap-1 text-[#F59E0B]">
@@ -118,7 +131,7 @@ export function ReviewsCarousel({ currentLocale }: Props) {
           <p className="mt-6 text-center text-[11px] text-[#DDF3FF]/40">
             {t.disclaimer}
           </p>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
