@@ -58,7 +58,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Carpintaria de Acabamento",
       es: "Carpintería Fina",
     },
-    image: "/images/services/carpentry.png",
+    image: "/images/coffered ceiling.png",
     description: {
       en: "Precision architectural millwork and master carpentry. Intricate coffered ceiling grid installations, custom 7-inch baseboards, crisp mitered door casing and detailed wainscoting panels designed to enrich luxury residential interiors.",
       pt: "Carpintaria arquitetônica fina de alta precisão. Instalação de forro caixotão (coffered ceiling), rodapés de 7 polegadas com cortes em esquadria precisos, guarnições de portas personalizadas e painéis decorativos que elevam o padrão residencial.",
@@ -146,7 +146,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Drywall",
       es: "Drywall",
     },
-    image: "/images/drywall.png",
+    image: "/images/drywall projeto certo.png",
     description: {
       en: "Premium hanging and taping across an expansive open-concept living area. Skim coated to a true Level 5 smoothness, eliminating seams under raking ceiling light and primed ready for flawless paint application.",
       pt: "Instalação, colocação de fita e emassamento em conceito aberto amplo. Acabamento fino Nível 5 que elimina qualquer percepção de emenda sob iluminação rasante, pronto para pintura impecável.",
