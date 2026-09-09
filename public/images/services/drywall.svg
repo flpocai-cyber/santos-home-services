@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg-drywall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#001D2B"/>
+      <stop offset="60%" stop-color="#071820"/>
+      <stop offset="100%" stop-color="#006A9E"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0089D0" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#001D2B" stop-opacity="0.8"/>
+    </linearGradient>
+    <pattern id="grid-drywall" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(221, 243, 255, 0.05)" stroke-width="1"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#bg-drywall)"/>
+  <rect width="800" height="600" fill="url(#grid-drywall)"/>
+
+  <g opacity="0.15" stroke="#DDF3FF" stroke-width="1.5">
+    <polygon points="400,80 720,240 720,520 400,680 80,520 80,240" fill="none"/>
+    <circle cx="400" cy="300" r="180" fill="none" stroke-dasharray="8 8"/>
+    <line x1="80" y1="240" x2="720" y2="240"/>
+    <line x1="400" y1="80" x2="400" y2="600"/>
+  </g>
+
+  <rect x="120" y="110" width="560" height="380" rx="20" fill="url(#cardGrad)" stroke="#0089D0" stroke-width="2" stroke-opacity="0.4"/>
+
+  <g transform="translate(400, 230)">
+    <polygon points="0,-48 42,-24 42,24 0,48 -42,24 -42,-24" fill="#001D2B" stroke="#0089D0" stroke-width="4"/>
+    <text x="0" y="12" font-family="'Plus Jakarta Sans', sans-serif" font-size="34" font-weight="900" fill="#FFFFFF" text-anchor="middle">S</text>
+    <line x1="-18" y1="22" x2="18" y2="22" stroke="#0089D0" stroke-width="4" stroke-linecap="round"/>
+  </g>
+
+  <rect x="260" y="320" width="280" height="34" rx="17" fill="#0089D0" fill-opacity="0.15" stroke="#0089D0" stroke-width="1"/>
+  <text x="400" y="342" font-family="'Inter', sans-serif" font-size="12" font-weight="700" letter-spacing="2" fill="#DDF3FF" text-anchor="middle">SANTOS HOME SERVICES LLC</text>
+
+  <text x="400" y="400" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="800" fill="#FFFFFF" text-anchor="middle">Drywall Installation & Repair</text>
+  <text x="400" y="435" font-family="'Inter', sans-serif" font-size="16" font-weight="500" fill="#DDF3FF" opacity="0.8" text-anchor="middle">Seamless Hanging, Taping & Sanding</text>
+
+  <rect x="360" y="465" width="80" height="4" rx="2" fill="#0089D0"/>
+</svg>

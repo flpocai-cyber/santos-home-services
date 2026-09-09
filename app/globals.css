@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-dark: #001D2B;
+  --color-brand-navy: #071820;
+  --color-brand-primary: #006A9E;
+  --color-brand-vibrant: #0089D0;
+  --color-brand-light: #DDF3FF;
+  --color-brand-gray-light: #F5F7F8;
+  --color-brand-gray-mid: #6B7280;
+}
+
+:root {
+  --brand-dark: #001D2B;
+  --brand-navy: #071820;
+  --brand-primary: #006A9E;
+  --brand-vibrant: #0089D0;
+  --brand-light: #DDF3FF;
+  --brand-gray-light: #F5F7F8;
+  --brand-gray-mid: #6B7280;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #001D2B;
+  color: #FFFFFF;
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.font-heading {
+  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+}
+
+/* Glassmorphism Header */
+.glass-header {
+  background: rgba(5, 25, 38, 0.45);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(221, 243, 255, 0.08);
+}
+
+.glass-header-scrolled {
+  background: rgba(0, 29, 43, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 137, 208, 0.25);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #001D2B;
+}
+::-webkit-scrollbar-thumb {
+  background: #006A9E;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0089D0;
+}
+
+::selection {
+  background: #0089D0;
+  color: #FFFFFF;
+}

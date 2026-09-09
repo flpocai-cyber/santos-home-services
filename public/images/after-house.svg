@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="skySunny" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#DDF3FF"/>
+    </linearGradient>
+    <linearGradient id="modernSiding" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC"/>
+      <stop offset="100%" stop-color="#E2E8F0"/>
+    </linearGradient>
+    <linearGradient id="warmCedar" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#C26D33"/>
+      <stop offset="50%" stop-color="#D97736"/>
+      <stop offset="100%" stop-color="#A55420"/>
+    </linearGradient>
+    <pattern id="cleanSiding" width="40" height="18" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="18" x2="40" y2="18" stroke="#CBD5E1" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#skySunny)"/>
+
+  <!-- Manicured green lawn & landscape -->
+  <polygon points="0,520 300,500 700,515 1200,490 1200,800 0,800" fill="#166534"/>
+
+  <!-- Pristine Modern Colonial House Body -->
+  <rect x="250" y="230" width="700" height="340" fill="url(#modernSiding)"/>
+  <rect x="250" y="230" width="700" height="340" fill="url(#cleanSiding)"/>
+  <polygon points="210,230 600,60 990,230" fill="#001D2B"/>
+
+  <!-- Pristine architectural trim & eaves -->
+  <polygon points="210,230 600,60 600,85 235,230" fill="#FFFFFF"/>
+  <polygon points="990,230 600,60 600,85 965,230" fill="#E2E8F0"/>
+
+  <!-- Premium Brand-New Cedar Deck with horizontal black aluminum balusters -->
+  <rect x="180" y="510" width="840" height="160" fill="url(#warmCedar)"/>
+  <g stroke="#001D2B" stroke-width="4">
+    <line x1="180" y1="450" x2="1020" y2="450" stroke-width="8"/>
+    <line x1="200" y1="450" x2="200" y2="510"/>
+    <line x1="280" y1="450" x2="280" y2="510"/>
+    <line x1="360" y1="450" x2="360" y2="510"/>
+    <line x1="440" y1="450" x2="440" y2="510"/>
+    <line x1="760" y1="450" x2="760" y2="510"/>
+    <line x1="840" y1="450" x2="840" y2="510"/>
+    <line x1="920" y1="450" x2="920" y2="510"/>
+    <line x1="1000" y1="450" x2="1000" y2="510"/>
+  </g>
+
+  <!-- Modern energy-efficient windows with white casing -->
+  <rect x="330" y="300" width="180" height="160" fill="#006A9E" fill-opacity="0.25" stroke="#FFFFFF" stroke-width="12" rx="4"/>
+  <rect x="690" y="300" width="180" height="160" fill="#006A9E" fill-opacity="0.25" stroke="#FFFFFF" stroke-width="12" rx="4"/>
+  
+  <!-- Front door navy accent -->
+  <rect x="555" y="360" width="90" height="150" fill="#001D2B" stroke="#FFFFFF" stroke-width="6"/>
+  <circle cx="570" cy="440" r="4" fill="#0089D0"/>
+
+  <!-- High contrast status watermark -->
+  <rect x="940" y="60" width="200" height="48" rx="8" fill="#006A9E" fill-opacity="0.95"/>
+  <text x="1040" y="92" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">AFTER</text>
+  <text x="600" y="745" font-family="'Inter', sans-serif" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">Crafted by Santos Home Services LLC • Danbury, CT</text>
+</svg>

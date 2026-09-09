@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800">
+  <defs>
+    <linearGradient id="skyOvercast" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8C9398"/>
+      <stop offset="100%" stop-color="#B8BEC2"/>
+    </linearGradient>
+    <linearGradient id="wornWall" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A8A399"/>
+      <stop offset="100%" stop-color="#827D73"/>
+    </linearGradient>
+    <pattern id="crackedSiding" width="40" height="24" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="24" x2="40" y2="24" stroke="#686359" stroke-width="2"/>
+      <path d="M 10 5 L 14 18 M 28 2 L 32 14" stroke="#524D44" stroke-width="1.2" opacity="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#skyOvercast)"/>
+  
+  <!-- Overgrown dead vegetation background -->
+  <polygon points="0,520 250,470 550,510 900,480 1200,530 1200,800 0,800" fill="#5E5848"/>
+
+  <!-- Weathered Old House Body -->
+  <rect x="250" y="240" width="700" height="340" fill="url(#wornWall)"/>
+  <rect x="250" y="240" width="700" height="340" fill="url(#crackedSiding)"/>
+  <polygon points="210,240 600,80 990,240" fill="#423E3A"/>
+
+  <!-- Rotten broken deck -->
+  <rect x="200" y="520" width="800" height="150" fill="#4B4237"/>
+  <!-- Broken Railings -->
+  <g stroke="#3A3228" stroke-width="6">
+    <line x1="220" y1="460" x2="220" y2="520"/>
+    <line x1="300" y1="475" x2="310" y2="520"/>
+    <line x1="380" y1="460" x2="380" y2="520"/>
+    <line x1="460" y1="490" x2="470" y2="520"/>
+    <line x1="740" y1="460" x2="740" y2="520"/>
+    <line x1="820" y1="470" x2="830" y2="520"/>
+    <line x1="900" y1="460" x2="900" y2="520"/>
+    <line x1="980" y1="480" x2="970" y2="520"/>
+  </g>
+
+  <!-- Peeling windows -->
+  <rect x="340" y="320" width="160" height="150" fill="#2E3338" stroke="#48423B" stroke-width="12"/>
+  <rect x="700" y="320" width="160" height="150" fill="#2E3338" stroke="#48423B" stroke-width="12"/>
+
+  <!-- High contrast status watermark -->
+  <rect x="60" y="60" width="220" height="48" rx="8" fill="#B91C1C" fill-opacity="0.9"/>
+  <text x="170" y="92" font-family="'Inter', sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="2">BEFORE</text>
+  <text x="600" y="740" font-family="'Inter', sans-serif" font-size="18" font-weight="600" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Weathered Siding, Deteriorated Deck &amp; Aging Exterior</text>
+</svg>

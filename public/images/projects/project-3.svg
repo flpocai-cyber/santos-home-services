@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="pgrad-project-3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#001D2B"/>
+      <stop offset="50%" stop-color="#071820"/>
+      <stop offset="100%" stop-color="#004A70"/>
+    </linearGradient>
+    <linearGradient id="accentLine" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#006A9E"/>
+      <stop offset="50%" stop-color="#0089D0"/>
+      <stop offset="100%" stop-color="#DDF3FF"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="600" fill="url(#pgrad-project-3)"/>
+
+  <g stroke="#0089D0" stroke-width="1.2" opacity="0.25">
+    <line x1="0" y1="450" x2="800" y2="450"/>
+    <line x1="0" y1="350" x2="800" y2="350"/>
+    <line x1="200" y1="100" x2="200" y2="600"/>
+    <line x1="400" y1="100" x2="400" y2="600"/>
+    <line x1="600" y1="100" x2="600" y2="600"/>
+    <polygon points="120,450 400,180 680,450" fill="none" stroke="#DDF3FF" stroke-width="2" opacity="0.4"/>
+  </g>
+
+  <rect x="80" y="80" width="640" height="440" rx="16" fill="#001D2B" fill-opacity="0.85" stroke="#0089D0" stroke-width="1.5" stroke-opacity="0.4"/>
+
+  <g transform="translate(140, 140) scale(0.7)">
+    <polygon points="0,-40 35,-20 35,20 0,40 -35,20 -35,-20" fill="#001D2B" stroke="#0089D0" stroke-width="3"/>
+    <text x="0" y="10" font-family="'Plus Jakarta Sans', sans-serif" font-size="28" font-weight="900" fill="#FFFFFF" text-anchor="middle">S</text>
+  </g>
+
+  <rect x="180" y="125" width="140" height="28" rx="14" fill="#0089D0" fill-opacity="0.2" stroke="#0089D0" stroke-width="1"/>
+  <text x="250" y="143" font-family="'Inter', sans-serif" font-size="11" font-weight="700" letter-spacing="1.5" fill="#DDF3FF" text-anchor="middle">FENCE • 2024</text>
+
+  <text x="120" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-size="26" font-weight="800" fill="#FFFFFF">Horizontal Modern Cedar Privacy Fence</text>
+
+  <g transform="translate(120, 280)">
+    <circle cx="10" cy="10" r="6" fill="none" stroke="#0089D0" stroke-width="2"/>
+    <circle cx="10" cy="10" r="2.5" fill="#0089D0"/>
+    <text x="26" y="15" font-family="'Inter', sans-serif" font-size="16" font-weight="600" fill="#DDF3FF" opacity="0.9">Bethel, CT</text>
+  </g>
+
+  <g transform="translate(120, 340)">
+    <rect x="0" y="0" width="150" height="36" rx="8" fill="#071820" stroke="rgba(221,243,255,0.15)" stroke-width="1"/>
+    <text x="75" y="22" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#DDF3FF" text-anchor="middle">✓ Licensed Craft</text>
+
+    <rect x="165" y="0" width="170" height="36" rx="8" fill="#071820" stroke="rgba(221,243,255,0.15)" stroke-width="1"/>
+    <text x="250" y="22" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#DDF3FF" text-anchor="middle">✓ Premium Finish</text>
+
+    <rect x="350" y="0" width="160" height="36" rx="8" fill="#071820" stroke="rgba(221,243,255,0.15)" stroke-width="1"/>
+    <text x="430" y="22" font-family="'Inter', sans-serif" font-size="12" font-weight="600" fill="#DDF3FF" text-anchor="middle">✓ Danbury & Area</text>
+  </g>
+
+  <rect x="120" y="440" width="560" height="2" fill="url(#accentLine)"/>
+</svg>
