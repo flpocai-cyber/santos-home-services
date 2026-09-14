@@ -229,29 +229,32 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                   </div>
 
                   {/* Selo de Antes / Depois quando houver fotos de antes/depois */}
-                  {isMulti && galleryImages.length >= 2 && (
-                    <div className="absolute top-4 left-4 z-20">
-                      <span
-                        className={`rounded-lg px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md transition-colors ${
-                          modalImageIndex % 2 === 0
-                            ? "bg-[#B91C1C]/90"
-                            : "bg-[#0089D0]/90"
-                        }`}
-                      >
-                        {modalImageIndex % 2 === 0
-                          ? currentLocale === "pt"
-                            ? "ANTES"
+                  {isMulti && galleryImages.length >= 2 && (() => {
+                    const isBefore = galleryImages.length === 3 ? modalImageIndex === 0 : modalImageIndex % 2 === 0;
+                    return (
+                      <div className="absolute top-4 left-4 z-20">
+                        <span
+                          className={`rounded-lg px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md transition-colors ${
+                            isBefore
+                              ? "bg-[#B91C1C]/90"
+                              : "bg-[#0089D0]/90"
+                          }`}
+                        >
+                          {isBefore
+                            ? currentLocale === "pt"
+                              ? "ANTES"
+                              : currentLocale === "es"
+                              ? "ANTES"
+                              : "BEFORE"
+                            : currentLocale === "pt"
+                            ? "DEPOIS"
                             : currentLocale === "es"
-                            ? "ANTES"
-                            : "BEFORE"
-                          : currentLocale === "pt"
-                          ? "DEPOIS"
-                          : currentLocale === "es"
-                          ? "DESPUÉS"
-                          : "AFTER"}
-                      </span>
-                    </div>
-                  )}
+                            ? "DESPUÉS"
+                            : "AFTER"}
+                        </span>
+                      </div>
+                    );
+                  })()}
 
                   {/* Setas de Seleção Prev / Next */}
                   {isMulti && (
