@@ -228,8 +228,8 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                     </span>
                   </div>
 
-                  {/* Selo de Antes / Depois quando houver 2 fotos */}
-                  {isMulti && galleryImages.length === 2 && (
+                  {/* Selo de Antes / Depois quando houver fotos de antes/depois */}
+                  {isMulti && galleryImages.length >= 2 && (
                     <div className="absolute top-4 left-4 z-20">
                       <span
                         className={`rounded-lg px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md transition-colors ${
