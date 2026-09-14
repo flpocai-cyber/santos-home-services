@@ -316,4 +316,38 @@ export const projectsData: ProjectItem[] = [
       "Complete Room Transformation",
     ],
   },
+  {
+    id: "proj-poolside-deck-1",
+    category: "deck",
+    title: {
+      en: "Poolside Deck & Lounge Upgrade",
+      pt: "Deck à Beira da Piscina & Espaço Lounge",
+      es: "Deck Junto a la Piscina & Área Lounge",
+    },
+    location: "Fairfield County, CT",
+    type: {
+      en: "Deck Renovation",
+      pt: "Reforma de Deck",
+      es: "Renovación de Deck",
+    },
+    image: "/SERVICES/Poolside Deck & Lounge Upgrade/6.jpg",
+    images: [
+      "/SERVICES/Poolside Deck & Lounge Upgrade/5.jpg",
+      "/SERVICES/Poolside Deck & Lounge Upgrade/6.jpg",
+    ],
+    beforeImage: "/SERVICES/Poolside Deck & Lounge Upgrade/5.jpg",
+    afterImage: "/SERVICES/Poolside Deck & Lounge Upgrade/6.jpg",
+    description: {
+      en: "A complete backyard deck transformation that turned an unfinished poolside area into a functional and inviting outdoor living space. The new layout adds comfort, better circulation, and a clean, polished look for relaxing and entertaining.",
+      pt: "Uma transformação completa de deck no quintal que converteu uma área de brita ao lado da piscina em um espaço externo aconchegante e funcional. O novo projeto proporciona mais conforto, excelente circulação e acabamento impecável para relaxar e receber convidados.",
+      es: "Una transformación completa del deck del patio trasero que convirtió un área rústica junto a la piscina en un espacio de vida exterior funcional y acogedor. El nuevo diseño añade comodidad, mejor circulación y un aspecto pulido para el descanso y el entretenimiento.",
+    },
+    highlights: [
+      "Poolside Deck Installation",
+      "Outdoor Lounge Area",
+      "Railing & Safety Upgrades",
+      "Expanded Usable Space",
+      "Backyard Entertainment Enhancement",
+    ],
+  },
 ];
