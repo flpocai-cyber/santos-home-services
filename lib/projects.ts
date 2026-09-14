@@ -1,6 +1,6 @@
 export interface ProjectItem {
   id: string;
-  category: "basement" | "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles";
+  category: "basement" | "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles" | "bathroom";
   title: {
     en: string;
     pt: string;
@@ -131,26 +131,38 @@ export const projectsData: ProjectItem[] = [
     ],
   },
   {
-    id: "proj-4",
-    category: "framing",
+    id: "proj-bathroom-remodel-1",
+    category: "bathroom",
     title: {
-      en: "Two-Story Master Suite Framing",
-      pt: "Framing Estrutural de Suíte Master",
-      es: "Estructura para Suite Principal",
+      en: "Modern Bathroom Remodel",
+      pt: "Reforma Moderna de Banheiro",
+      es: "Remodelación Moderna de Baño",
     },
     location: "Brookfield, CT",
     type: {
-      en: "Framing",
-      pt: "Framing",
-      es: "Framing",
+      en: "Bathroom Renovation",
+      pt: "Reforma de Banheiro",
+      es: "Renovación de Baño",
     },
-    image: "/images/framing suite maste.png",
+    image: "/SERVICES/Modern Bathroom Remodel/22.jpg",
+    images: [
+      "/SERVICES/Modern Bathroom Remodel/21.jpg",
+      "/SERVICES/Modern Bathroom Remodel/22.jpg",
+    ],
+    beforeImage: "/SERVICES/Modern Bathroom Remodel/21.jpg",
+    afterImage: "/SERVICES/Modern Bathroom Remodel/22.jpg",
     description: {
-      en: "Full structural load-bearing timber framing for a two-story luxury residential expansion. Engineered LVL headers, accurate laser-leveled wall studs, wind-bracing sheer walls and cathedral roof truss systems.",
-      pt: "Framing estrutural autoportante para ampliação de dois andares de suíte master. Vigas LVL dimensionadas por engenharia, prumo a laser em todas as paredes, travamentos estruturais e suporte de forro catedral.",
-      es: "Estructura de madera para ampliación de suite de dos pisos. Vigas de ingeniería LVL, alineación láser de montantes, refuerzos contra viento y estructura de techo tipo catedral.",
+      en: "This bathroom was fully refreshed with a cleaner layout, brighter finishes, and a more modern design. The renovation included a new vanity, updated shower area, fresh paint, and finish details that brought more comfort, style, and functionality to the space.",
+      pt: "Este banheiro foi completamente revitalizado com layout mais limpo, acabamentos iluminados e design moderno. A reforma incluiu nova bancada com cuba, área de chuveiro renovada com revestimentos modernos, pintura fresca e detalhes que proporcionam conforto, elegância e funcionalidade.",
+      es: "Este baño fue completamente renovado con una distribución más despejada, acabados luminosos y un diseño moderno. La remodelación incluyó un nuevo tocador, área de ducha actualizada, pintura fresca y detalles de terminación que aportan mayor confort, estilo y funcionalidad al espacio.",
     },
-    highlights: ["Engineered LVL Headers", "Laser-Leveled Framing", "Cathedral Roof Trusses", "Passed City Inspection"],
+    highlights: [
+      "New Vanity Installation",
+      "Updated Shower Area",
+      "Fresh Paint & Trim",
+      "Modern Fixture Upgrades",
+      "Clean & Functional Design",
+    ],
   },
   {
     id: "proj-5",

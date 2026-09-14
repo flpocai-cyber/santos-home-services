@@ -162,6 +162,7 @@ export const translations = {
         carpentry: "CARPENTRY",
         flooring: "FLOORING",
         tiles: "TILES",
+        bathroom: "BATHROOM",
       },
     },
     about: {
@@ -449,6 +450,7 @@ export const translations = {
         carpentry: "CARPINTARIA",
         flooring: "FLOORING",
         tiles: "TILES",
+        bathroom: "BANHEIRO",
       },
     },
     about: {
@@ -736,6 +738,7 @@ export const translations = {
         carpentry: "CARPINTERÍA",
         flooring: "FLOORING",
         tiles: "TILES",
+        bathroom: "BAÑO",
       },
     },
     about: {

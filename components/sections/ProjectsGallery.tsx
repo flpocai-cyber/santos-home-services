@@ -50,6 +50,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
     { key: "carpentry", label: t.filters.carpentry },
     { key: "flooring", label: (t.filters as any).flooring || "FLOORING" },
     { key: "tiles", label: (t.filters as any).tiles || "TILES" },
+    { key: "bathroom", label: (t.filters as any).bathroom || "BATHROOM" },
   ];
 
   const filteredProjects =
