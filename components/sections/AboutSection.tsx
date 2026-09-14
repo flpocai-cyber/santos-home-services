@@ -17,44 +17,22 @@ export function AboutSection({ currentLocale }: Props) {
     <section id="about" className="relative bg-[#001D2B] py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          {/* Left Visual: Frame 25 team work in progress */}
+          {/* Left Visual: About portrait */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="relative"
+            className="relative flex items-center justify-center"
           >
-            <div className="relative h-[380px] sm:h-[480px] w-full overflow-hidden rounded-3xl border border-white/15 shadow-2xl">
+            <div className="relative h-[440px] sm:h-[540px] lg:h-[580px] w-full max-w-[480px] overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-white/5 to-[#001D2B]/80 shadow-2xl backdrop-blur-sm flex items-end justify-center">
               <Image
-                src="/hero-sequence/frame-25.jpg"
-                alt="Santos Home Services LLC - Team at Work"
+                src="/about-branco.png"
+                alt="Santos Home Services LLC"
                 fill
-                className="object-cover"
+                className="object-contain object-bottom drop-shadow-2xl"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#001D2B] via-transparent to-transparent opacity-60" />
-
-              {/* Floating Badge - Caixa branca com letras pretas para destacar o logo */}
-              <div className="absolute bottom-6 left-6 right-6 rounded-2xl border border-black/10 bg-white/95 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] backdrop-blur-xl transition-all duration-300 hover:bg-white">
-                <div className="flex items-center gap-4">
-                  <div className="relative h-14 w-14 flex-shrink-0">
-                    <Image
-                      src="/images/santos home services llc.png"
-                      alt="Santos Home Services LLC Logo"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-extrabold text-black tracking-tight font-heading">
-                      Santos Home Services LLC
-                    </h4>
-                    <p className="text-xs font-semibold text-gray-700">
-                      95 Main St Apt 2B, Danbury, CT
-                    </p>
-                  </div>
-                </div>
-              </div>
             </div>
           </motion.div>
 
