@@ -85,12 +85,30 @@ export function ReviewsCarousel({ currentLocale }: Props) {
             {/* Author details */}
             <div className="mt-8 flex items-center justify-between border-t border-gray-100 pt-6">
               <div>
-                <h4 className="text-base font-extrabold tracking-tight text-[#001D2B] font-heading">
-                  {activeReview.name}
-                </h4>
-                <p className="text-xs font-semibold text-[#006A9E]">
-                  {activeReview.location} • {activeReview.service}
-                </p>
+                <div className="flex items-center gap-2">
+                  {activeReview.url ? (
+                    <a
+                      href={activeReview.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-base font-extrabold tracking-tight text-[#001D2B] font-heading hover:text-[#0089D0] transition-colors underline-offset-2 hover:underline"
+                    >
+                      {activeReview.name}
+                    </a>
+                  ) : (
+                    <h4 className="text-base font-extrabold tracking-tight text-[#001D2B] font-heading">
+                      {activeReview.name}
+                    </h4>
+                  )}
+                  <span className="text-xs font-medium text-gray-400">
+                    • {activeReview.time[currentLocale]}
+                  </span>
+                </div>
+                {activeReview.service && (
+                  <p className="text-xs font-semibold text-[#006A9E] mt-0.5">
+                    {activeReview.service[currentLocale]}
+                  </p>
+                )}
               </div>
 
               {/* Prev / Next controls */}

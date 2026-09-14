@@ -207,7 +207,7 @@ export const translations = {
       tag: "CLIENT TESTIMONIALS",
       title: "Trusted by Homeowners",
       subtitle: "Read feedback from verified homeowners across Danbury and Fairfield County.",
-      disclaimer: "Sample testimonials for layout demonstration. Replace with verified client reviews before production.",
+      disclaimer: "Verified client testimonials published on Facebook and Instagram.",
     },
     license: {
       tag: "CREDENTIALS & COMPLIANCE",
@@ -491,7 +491,7 @@ export const translations = {
       tag: "DEPOIMENTOS DE CLIENTES",
       title: "Aprovado por Proprietários",
       subtitle: "Veja o que dizem moradores de Danbury e cidades vizinhas sobre os nossos serviços.",
-      disclaimer: "Depoimentos demonstrativos para layout. Substituir por depoimentos verificados antes de produção.",
+      disclaimer: "Depoimentos reais de clientes verificados publicados no Facebook e Instagram.",
     },
     license: {
       tag: "LICENCIAMENTO E CONFIANÇA",
@@ -775,7 +775,7 @@ export const translations = {
       tag: "TESTIMONIOS",
       title: "La Confianza de Nuestros Clientes",
       subtitle: "Opiniones de propietarios de viviendas en Danbury y ciudades vecinas de Connecticut.",
-      disclaimer: "Testimonios de muestra con fines demostrativos. Sustituir por reseñas reales antes de producción.",
+      disclaimer: "Testimonios reales de clientes verificados publicados en Facebook e Instagram.",
     },
     license: {
       tag: "LICENCIA Y LEGALIDAD",

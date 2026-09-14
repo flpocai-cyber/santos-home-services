@@ -1,212 +1,192 @@
-// Replace these sample reviews with verified customer reviews before production.
 export interface Review {
   id: string;
   name: string;
-  location: string;
+  url?: string;
+  time: {
+    en: string;
+    pt: string;
+    es: string;
+  };
   rating: number;
-  service: string;
+  service?: {
+    en: string;
+    pt: string;
+    es: string;
+  };
   comment: {
     en: string;
     pt: string;
     es: string;
   };
-  isPlaceholder: boolean;
 }
 
 export const reviews: Review[] = [
   {
     id: "review-01",
-    name: "Sample Client 01",
-    location: "Danbury, CT",
+    name: "Mahogany Drk Brown",
+    url: "https://www.facebook.com/StarBrown",
+    time: {
+      en: "2 years ago",
+      pt: "2 anos atrás",
+      es: "Hace 2 años",
+    },
     rating: 5,
-    service: "Deck Construction",
-    isPlaceholder: true,
+    service: {
+      en: "Verified Review • Facebook",
+      pt: "Avaliação Verificada • Facebook",
+      es: "Reseña Verificada • Facebook",
+    },
     comment: {
-      en: "The craftsmanship on our new cedar deck was exceptional. Punctual, polite and left the yard spotless every day.",
-      pt: "O acabamento do nosso novo deck em cedro foi excepcional. Pontuais, educados e deixaram o quintal impecável todos os dias.",
-      es: "La mano de obra en nuestro nuevo deck de cedro fue excepcional. Muy puntuales y dejaron todo limpio cada día.",
+      en: "Mr. Santos is an exceptional craftsman who exceeds the regular standards of work ethic. He is meticulous in his work and pays close attention to every detail of the project requirements specified by his patrons. In the projects he has completed, my husband and I have been thoroughly impressed with the quality of his artistry. From the precise cuts to the carefully chosen materials, every aspect of his work is a testament to his dedication and skill. We are delighted with all the projects he has completed for us, and we would not hesitate to recommend him to anyone seeking fine, detailed craftsmanship for their projects.",
+      pt: "O Sr. Santos é um profissional excepcional que supera todos os padrões comuns de ética de trabalho. Ele é meticuloso em sua atuação e presta atenção a cada detalhe das exigências especificadas por seus clientes. Nos projetos que realizou para nós, meu marido e eu ficamos profundamente impressionados com a qualidade de sua arte. Dos cortes precisos aos materiais cuidadosamente escolhidos, cada detalhe de seu trabalho é uma prova de sua dedicação e habilidade. Estamos encantados com todos os projetos que ele concluiu para nós e não hesitamos em recomendá-lo a qualquer pessoa que busque um trabalho artesanal fino e detalhado.",
+      es: "El Sr. Santos es un artesano excepcional que supera los estándares habituales de ética laboral. Es meticuloso en su trabajo y presta máxima atención a cada detalle especificado por sus clientes. En los proyectos que ha completado, mi esposo y yo quedamos profundamente impresionados con la calidad de su labor. Desde los cortes precisos hasta los materiales cuidadosamente seleccionados, cada aspecto de su trabajo demuestra su dedicación y destreza. Estamos encantados con todos los proyectos que ha hecho para nosotros y lo recomendamos sin dudarlo a quien busque una mano de obra fina y detallada.",
     },
   },
   {
     id: "review-02",
-    name: "Sample Client 02",
-    location: "Bethel, CT",
+    name: "Robert Russo",
+    url: "https://www.facebook.com/BodgieR",
+    time: {
+      en: "4 weeks ago",
+      pt: "4 semanas atrás",
+      es: "Hace 4 semanas",
+    },
     rating: 5,
-    service: "Finish Carpentry",
-    isPlaceholder: true,
+    service: {
+      en: "Verified Review • Facebook",
+      pt: "Avaliação Verificada • Facebook",
+      es: "Reseña Verificada • Facebook",
+    },
     comment: {
-      en: "Incredible crown molding and custom wainscoting. The precision of the miter cuts transformed our living room completely.",
-      pt: "Molduras e rodapés de alta qualidade. A precisão dos cortes e encaixes transformou completamente a nossa sala.",
-      es: "Increíble trabajo de molduras y carpintería fina. La precisión de los cortes transformó nuestra sala.",
+      en: "You do amazing work. All my friends use you and everything come out fantastic.",
+      pt: "Vocês fazem um trabalho incrível. Todos os meus amigos contratam vocês e tudo sempre fica fantástico.",
+      es: "Hacen un trabajo increíble. Todos mis amigos los contratan y todo queda fantástico.",
     },
   },
   {
     id: "review-03",
-    name: "Sample Client 03",
-    location: "Brookfield, CT",
+    name: "patriciaoc21888",
+    url: "https://www.instagram.com/patriciaoc21888/",
+    time: {
+      en: "19 weeks ago",
+      pt: "19 semanas atrás",
+      es: "Hace 19 semanas",
+    },
     rating: 5,
-    service: "Fence Installation",
-    isPlaceholder: true,
+    service: {
+      en: "Verified Review • Instagram",
+      pt: "Avaliação Verificada • Instagram",
+      es: "Reseña Verificada • Instagram",
+    },
     comment: {
-      en: "Built a rock-solid privacy fence along our property line. Very durable materials and executed right on schedule.",
-      pt: "Construíram uma cerca de privacidade muito sólida no nosso terreno. Materiais duráveis e prazo cumprido à risca.",
-      es: "Construyeron una cerca de privacidad muy sólida. Materiales duraderos y entrega justo a tiempo.",
+      en: "You cannot go wrong hiring this crew. They clean up the mess and even helped me put out the trash on nights I couldn’t be there . They are trustworthy with the keys… they even went to the house to let the plumber in when I couldn’t be there and I was nervous about someone I didn’t know in the house when I wasn’t there. Their craftsmanship and attention to detail is excellent . They take care to accommodate clients requests . They worked with me to find affordable materials . Honestly I will miss them when the work is finished !!",
+      pt: "Você não tem como errar contratando essa equipe. Eles limpam toda a bagunça e até me ajudaram a colocar o lixo para fora nas noites em que eu não podia estar presente. São totalmente confiáveis com as chaves... chegaram a ir até a casa para abrir para o encanador quando eu não podia estar lá e estava receosa com alguém desconhecido em casa sem mim. A mão de obra e a atenção aos detalhes são excelentes. Fazem questão de atender a todos os pedidos dos clientes e colaboraram comigo para encontrar materiais acessíveis. Sinceramente, vou sentir falta deles quando a obra terminar!!",
+      es: "Es imposible equivocarse contratando a este equipo. Limpian todo el desorden e incluso me ayudaron a sacar la basura en noches que no pude estar. Son completamente confiables con las llaves... incluso fueron a la casa a abrirle al plomero cuando yo no podía ir y me daba desconfianza dejar a un desconocido solo. Su mano de obra y atención al detalle son excelentes. Se esmeran en cumplir las peticiones de los clientes y me ayudaron a buscar materiales accesibles. ¡Sinceramente los voy a extrañar cuando termine el trabajo!!",
     },
   },
   {
     id: "review-04",
-    name: "Sample Client 04",
-    location: "New Fairfield, CT",
+    name: "Anita Albrycht",
+    url: "https://www.facebook.com/anita.albrycht.2025",
+    time: {
+      en: "10 weeks ago",
+      pt: "10 semanas atrás",
+      es: "Hace 10 semanas",
+    },
     rating: 5,
-    service: "Exterior Painting",
-    isPlaceholder: true,
+    service: {
+      en: "Porch, Railings & Deck • Facebook",
+      pt: "Alpendre, Grades e Deck • Facebook",
+      es: "Porche, Barandas y Deck • Facebook",
+    },
     comment: {
-      en: "Thorough scraping, priming and flawless paint finish. The house looks brand new and curb appeal doubled.",
-      pt: "Preparação completa, primer e pintura impecável. A casa parece novinha e a fachada ficou linda.",
-      es: "Excelente preparación de la superficie y acabado de pintura de primera. La casa luce como nueva.",
+      en: "Yes they did an amazing job on my home as well. I had my front porch redone new posts, railings and trex stairs and my back deck was all redone with trellis placed underneath for some added storage area. Just waiting for a permit and will be getting a deck around the pool built by Santos Home Services as well. If anyone needs any home improvements, roofing, deck needs, flooring etc please call Santos Home you will be pleased.",
+      pt: "Sim, eles fizeram um trabalho incrível na minha casa também. Reformei minha varanda da frente com novos postes, corrimãos e escadas de Trex, e meu deck dos fundos foi todo refeito com treliça na parte de baixo para criar uma área extra de armazenamento. Só estou aguardando a licença para construir também um deck ao redor da piscina com a Santos Home Services. Se alguém estiver precisando de reformas residenciais, telhados, decks, pisos, etc., por favor ligue para a Santos Home, você vai ficar muito satisfeito.",
+      es: "Sí, hicieron un trabajo asombroso en mi casa también. Me rehicieron el porche delantero con nuevos postes, barandas y escaleras de Trex, y mi deck trasero fue completamente remodelado con celosías debajo para crear espacio de almacenamiento. Solo estoy esperando el permiso y la Santos Home Services me construirá también un deck alrededor de la piscina. Si alguien necesita mejoras en el hogar, techos, decks, pisos, etc., llame a Santos Home, quedará encantado.",
     },
   },
   {
     id: "review-05",
-    name: "Sample Client 05",
-    location: "Ridgefield, CT",
+    name: "Lester Walters",
+    url: "https://www.facebook.com/lester.walters.7",
+    time: {
+      en: "10 weeks ago",
+      pt: "10 semanas atrás",
+      es: "Hace 10 semanas",
+    },
     rating: 5,
-    service: "Structural Framing",
-    isPlaceholder: true,
+    service: {
+      en: "Structural Posts & Vinyl • Facebook",
+      pt: "Postes Estruturais e Vinil • Facebook",
+      es: "Postes Estructurales y Vinilo • Facebook",
+    },
     comment: {
-      en: "Reliable framing for our home addition. Straight lines, solid engineering and passed town inspections without a hitch.",
-      pt: "Framing confiável para nossa ampliação. Estrutura sólida e aprovação imediata nas vistorias da cidade.",
-      es: "Estructura de madera confiable para nuestra ampliación. Líneas rectas y aprobación sin ningún problema.",
+      en: "Santos Home Services did an amazing job on my Home. Removing the old rotted posts and replacing them with new vynal covered ones. I highly recommend them for any work you may need to have done to your home. Just give them a call and know you will be very happy you did.",
+      pt: "A Santos Home Services fez um trabalho impecável na minha casa. Removeram os postes antigos apodrecidos e os substituíram por novos revestidos de vinil. Eu os recomendo com total certeza para qualquer serviço que você precise fazer na sua casa. Basta ligar para eles e você ficará muito feliz por ter contratado.",
+      es: "Santos Home Services hizo un trabajo excelente en mi casa. Removieron los postes viejos podridos y los reemplazaron por unos nuevos revestidos de vinilo. Los recomiendo ampliamente para cualquier trabajo que necesite en su hogar. Simplemente llámelos y estará muy contento de haberlo hecho.",
     },
   },
   {
     id: "review-06",
-    name: "Sample Client 06",
-    location: "Danbury, CT",
+    name: "Sheila DiCicco",
+    url: "https://www.facebook.com/sheila.duncan.50",
+    time: {
+      en: "3 weeks ago",
+      pt: "3 semanas atrás",
+      es: "Hace 3 semanas",
+    },
     rating: 5,
-    service: "Drywall & Level 5 Finish",
-    isPlaceholder: true,
+    service: {
+      en: "Kitchen Backsplash & Tile • Facebook",
+      pt: "Backsplash e Azulejos • Facebook",
+      es: "Salpicadero y Azulejos • Facebook",
+    },
     comment: {
-      en: "Seamless drywall work. Even under raking ceiling light, you cannot see a single joint or seam. Highly recommended!",
-      pt: "Drywall perfeito. Mesmo com luz direta no teto não se vê uma única emenda. Recomendo muito!",
-      es: "Trabajo impecable de drywall. Incluso con luz rasante, no se aprecia ninguna unión.",
+      en: "Santos Home did a great job removing and replacing my backsplash in my kitchen and installing new tile in my bathroom. Great service and pricing! Will do business with again soon.",
+      pt: "A Santos Home fez um excelente trabalho removendo e substituindo o backsplash da minha cozinha e instalando azulejos novos no meu banheiro. Ótimo atendimento e preço excelente! Com certeza farei negócio novamente em breve.",
+      es: "Santos Home hizo un trabajo magnífico removiendo y reemplazando el salpicadero de mi cocina e instalando azulejos nuevos en el baño. ¡Excelente servicio y gran precio! Volveré a hacer proyectos con ellos muy pronto.",
     },
   },
   {
     id: "review-07",
-    name: "Sample Client 07",
-    location: "Bethel, CT",
+    name: "Richard Auger",
+    url: "https://www.facebook.com/richard.auger.56",
+    time: {
+      en: "42 weeks ago",
+      pt: "42 semanas atrás",
+      es: "Hace 42 semanas",
+    },
     rating: 5,
-    service: "Deck Repair & Refinish",
-    isPlaceholder: true,
+    service: {
+      en: "Full Home Renovation • Facebook",
+      pt: "Reforma Completa • Facebook",
+      es: "Renovación Completa • Facebook",
+    },
     comment: {
-      en: "Saved our aging deck from rot and structural sagging. Replaced damaged joists and installed modern railings.",
-      pt: "Salvaram nosso deck que estava desgastado. Trocaram vigas danificadas e colocaram guarda-corpos modernos.",
-      es: "Rescataron nuestro deck del desgaste. Cambiaron vigas y colocaron barandas modernas.",
+      en: "Absolutely amazing, thankyou, wonderful job completed in a timely manner, was at job site early everyday, neat, polite, transformed this home from shabby to looking fantastic. Highly recommended.",
+      pt: "Absolutamente incrível, muito obrigado, trabalho maravilhoso concluído dentro do prazo previsto, estavam na obra cedo todos os dias, caprichosos, educados, transformaram esta casa de desgastada para uma aparência fantástica. Altamente recomendado.",
+      es: "Absolutamente increíble, muchas gracias, maravilloso trabajo terminado justo a tiempo, llegaban temprano a la obra todos los días, limpios, amables, transformaron esta casa deteriorada en un lugar fantástico. Muy recomendado.",
     },
   },
   {
     id: "review-08",
-    name: "Sample Client 08",
-    location: "Brookfield, CT",
-    rating: 5,
-    service: "Interior Painting",
-    isPlaceholder: true,
-    comment: {
-      en: "Clean lines between ceilings and walls. They protected all our furniture and completed the whole first floor in 3 days.",
-      pt: "Linhas perfeitas entre forro e paredes. Protegeram toda a mobília e finalizaram o piso térreo em 3 dias.",
-      es: "Líneas muy limpias entre techos y paredes. Protegieron los muebles y terminaron a tiempo.",
+    name: "Patricia O. (patriciaoc21888)",
+    url: "https://www.instagram.com/patriciaoc21888/",
+    time: {
+      en: "19 weeks ago",
+      pt: "19 semanas atrás",
+      es: "Hace 19 semanas",
     },
-  },
-  {
-    id: "review-09",
-    name: "Sample Client 09",
-    location: "Danbury, CT",
     rating: 5,
-    service: "Finish Carpentry & Doors",
-    isPlaceholder: true,
-    comment: {
-      en: "Installed 8 solid core interior doors with matching trim. Everything closes with a satisfying, precision click.",
-      pt: "Instalaram 8 portas internas maciças com molduras perfeitas. Todas fecham com precisão milimétrica.",
-      es: "Instalaron 8 puertas interiores con sus molduras. Todo cierra con absoluta precisión.",
+    service: {
+      en: "Home Renovation • Instagram",
+      pt: "Reforma Residencial • Instagram",
+      es: "Renovación Residencial • Instagram",
     },
-  },
-  {
-    id: "review-10",
-    name: "Sample Client 10",
-    location: "New Fairfield, CT",
-    rating: 5,
-    service: "Custom Fence",
-    isPlaceholder: true,
     comment: {
-      en: "Very sturdy cedar fencing for our dogs. Gates swing smoothly and the posts are deep and solid.",
-      pt: "Cerca de cedro muito resistente para nossos cães. Portões abrem suavemente e os mourões são bem firmes.",
-      es: "Cerca de cedro muy resistente para nuestras mascotas. Puertas muy suaves y postes firmes.",
-    },
-  },
-  {
-    id: "review-11",
-    name: "Sample Client 11",
-    location: "Ridgefield, CT",
-    rating: 5,
-    service: "Drywall & Framing",
-    isPlaceholder: true,
-    comment: {
-      en: "Finished our basement space with framing, insulation and drywall. Clean work from start to finish.",
-      pt: "Finalizaram o porão com estrutura de madeira, isolamento e drywall. Serviço limpo do início ao fim.",
-      es: "Terminaron nuestro sótano con estructura de madera y drywall. Gran limpieza de principio a fin.",
-    },
-  },
-  {
-    id: "review-12",
-    name: "Sample Client 12",
-    location: "Danbury, CT",
-    rating: 5,
-    service: "Deck Construction",
-    isPlaceholder: true,
-    comment: {
-      en: "Great communication throughout the design and permit process. The finished composite deck is our favorite part of the home.",
-      pt: "Ótima comunicação em todo o projeto. O deck compósito finalizado virou o cantinho favorito da nossa casa.",
-      es: "Gran comunicación en todo el proyecto. El deck compuesto finalizado es nuestro espacio favorito.",
-    },
-  },
-  {
-    id: "review-13",
-    name: "Sample Client 13",
-    location: "Bethel, CT",
-    rating: 5,
-    service: "Exterior Painting",
-    isPlaceholder: true,
-    comment: {
-      en: "Honest pricing, respectful crew and great quality paint. Will definitely call Santos Home Services for future work.",
-      pt: "Preço justo, equipe respeitosa e tinta de ótima qualidade. Certamente chamaremos a Santos para novos serviços.",
-      es: "Precios justos, equipo respetuoso y pintura de excelente calidad. Los volveremos a contratar.",
-    },
-  },
-  {
-    id: "review-14",
-    name: "Sample Client 14",
-    location: "Brookfield, CT",
-    rating: 5,
-    service: "Carpentry & Trim",
-    isPlaceholder: true,
-    comment: {
-      en: "Custom fireplace mantle and coffered ceiling beams that look like they belong in an architectural magazine.",
-      pt: "Lareira e forro de vigas aparentes que parecem ter saído de uma revista de arquitetura.",
-      es: "Revestimiento de chimenea y vigas decorativas con acabado de revista de arquitectura.",
-    },
-  },
-  {
-    id: "review-15",
-    name: "Sample Client 15",
-    location: "Danbury, CT",
-    rating: 5,
-    service: "Full Exterior Renovation",
-    isPlaceholder: true,
-    comment: {
-      en: "From framing repairs to new siding, deck and painting, Santos Home Services delivered beyond our expectations.",
-      pt: "Desde reparos estruturais até novo siding, deck e pintura, a Santos Home Services superou nossas expectativas.",
-      es: "Desde reparaciones estructurales hasta nuevo revestimiento, deck y pintura, superaron nuestras expectativas.",
+      en: "Santos Home Services crew are amazing!! They have been renovating my new home . I highly recommend them . As a single female they are courteous, friendly and very trustworthy! They have given me amazing counsel, helped me pick up heavy materials , worked long hours to complete jobs on time and have offered great pricing helping me stay in my budget !!",
+      pt: "A equipe da Santos Home Services é sensacional!! Eles estão reformando minha nova casa. Eu os recomendo muito. Como mulher que mora sozinha, achei a equipe extremamente cortês, amigável e de total confiança! Eles me deram ótimos conselhos técnicos, me ajudaram a carregar materiais pesados, trabalharam horas extras para entregar os serviços no prazo e ofereceram preços excelentes que me mantiveram dentro do orçamento!!",
+      es: "¡¡El equipo de Santos Home Services es increíble!! Han estado renovando mi nuevo hogar. Los recomiendo de todo corazón. Como mujer que vive sola, ¡son sumamente corteses, amables y 100% de confianza! Me brindaron asesoría excelente, me ayudaron a cargar materiales pesados, trabajaron jornadas largas para terminar todo a tiempo y me ofrecieron excelentes precios adaptados a mi presupuesto!!",
     },
   },
 ];
