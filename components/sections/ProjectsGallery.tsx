@@ -231,7 +231,12 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
 
                   {/* Selo de Antes / Depois quando houver fotos de antes/depois */}
                   {isMulti && galleryImages.length >= 2 && (() => {
-                    const isBefore = galleryImages.length === 3 ? modalImageIndex === 0 : modalImageIndex % 2 === 0;
+                    const isBefore =
+                      selectedProject.beforeCount !== undefined
+                        ? modalImageIndex < selectedProject.beforeCount
+                        : galleryImages.length === 3
+                        ? modalImageIndex === 0
+                        : modalImageIndex % 2 === 0;
                     return (
                       <div className="absolute top-4 left-4 z-20">
                         <span

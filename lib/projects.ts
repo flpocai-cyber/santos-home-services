@@ -16,6 +16,7 @@ export interface ProjectItem {
   images?: string[];
   beforeImage?: string;
   afterImage?: string;
+  beforeCount?: number;
   description: {
     en: string;
     pt: string;
@@ -117,6 +118,7 @@ export const projectsData: ProjectItem[] = [
     ],
     beforeImage: "/SERVICES/Custom Accessibility Ramp/7.jpg",
     afterImage: "/SERVICES/Custom Accessibility Ramp/9.jpg",
+    beforeCount: 1,
     description: {
       en: "A custom wooden accessibility ramp was built to provide safer and easier access to the home. The project includes a sturdy walking surface, protective railing, and clean exterior finishing designed to integrate naturally with the property.",
       pt: "Uma rampa de acessibilidade em madeira foi construída sob medida para oferecer acesso mais seguro e fácil à residência. O projeto conta com superfície resistente e antiderrapante, guarda-corpo de proteção e acabamento externo impecável integrado à propriedade.",
@@ -165,26 +167,43 @@ export const projectsData: ProjectItem[] = [
     ],
   },
   {
-    id: "proj-5",
-    category: "paint",
+    id: "proj-basement-finishing-full",
+    category: "basement",
     title: {
-      en: "Full Colonial Exterior Restoration",
-      pt: "Restauração de Pintura Externa Colonial",
-      es: "Restauración de Pintura Exterior",
+      en: "Full Basement Finishing & Living Space Upgrade",
+      pt: "Reforma Completa de Porão & Espaço de Convivência",
+      es: "Remodelación Integral de Sótano en Espacio Familiar",
     },
-    location: "New Fairfield, CT",
+    location: "Fairfield County, CT",
     type: {
-      en: "Exterior Painting",
-      pt: "Pintura Externa",
-      es: "Pintura Exterior",
+      en: "Basement Renovation",
+      pt: "Reforma de Porão",
+      es: "Renovación de Sótano",
     },
-    image: "/images/pintura externa.png",
+    image: "/SERVICES/Full Basement Finishing & Living Space Upgrade/13.jpg",
+    images: [
+      "/SERVICES/Full Basement Finishing & Living Space Upgrade/12.jpg",
+      "/SERVICES/Full Basement Finishing & Living Space Upgrade/13.jpg",
+      "/SERVICES/Full Basement Finishing & Living Space Upgrade/14.jpg",
+      "/SERVICES/Full Basement Finishing & Living Space Upgrade/15.jpg",
+      "/SERVICES/Full Basement Finishing & Living Space Upgrade/16.jpg",
+    ],
+    beforeImage: "/SERVICES/Full Basement Finishing & Living Space Upgrade/12.jpg",
+    afterImage: "/SERVICES/Full Basement Finishing & Living Space Upgrade/13.jpg",
+    beforeCount: 1,
     description: {
-      en: "Full historic home exterior preservation and recoat. Comprehensive power washing, hand scraping of deteriorated coats, wood hardening primer, seamless caulking and two coats of premium architectural exterior enamel.",
-      pt: "Preservação e pintura completa de residência colonial exterior. Lavagem sob pressão, raspagem minuciosa de tintas antigas, selamento de juntas, primer de alta aderência e aplicação dupla de esmalte de alta durabilidade.",
-      es: "Restauración integral de pintura exterior colonial. Lavado a presión, raspado manual de pintura vieja, sellado de juntas, imprimación premium y dos capas de esmalte exterior resistente.",
+      en: "This unfinished basement was completely transformed into a clean, modern, and functional living area. The project included finished rooms, a new bathroom, updated flooring, bright finishes, and a compact kitchen setup, creating a comfortable and versatile lower-level space.",
+      pt: "Este porão inacabado foi totalmente transformado em uma área de convivência limpa, moderna e funcional. O projeto incluiu quartos finalizados, um banheiro novinho, novo piso, acabamentos iluminados e uma cozinha compacta, criando um ambiente confortável e versátil.",
+      es: "Este sótano rústico e inacabado se transformó por completo en una zona de estar limpia, moderna y funcional. El proyecto incluyó habitaciones terminadas, baño nuevo, pisos modernos, acabados claros y una cocina compacta, creando un espacio cómodo y versátil.",
     },
-    highlights: ["Full Surface Stripping", "Elastomeric Caulking", "Premium UV Resistant Paint", "Flawless Edge Lines"],
+    highlights: [
+      "Full Basement Finishing",
+      "New Bathroom Installation",
+      "Kitchenette Setup",
+      "New Flooring & Trim",
+      "Bright, Modern Interior",
+      "Added Functional Living Space",
+    ],
   },
   {
     id: "proj-6",
