@@ -25,13 +25,13 @@ export function AboutSection({ currentLocale }: Props) {
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="relative flex items-center justify-center lg:justify-end"
           >
-            <div className="relative w-full max-w-[480px] flex items-end justify-center">
-              <div className="relative h-[460px] sm:h-[550px] lg:h-[600px] w-full flex items-end justify-center">
+            <div className="relative w-full max-w-[580px] flex items-end justify-center">
+              <div className="relative h-[520px] sm:h-[620px] lg:h-[680px] xl:h-[720px] w-full flex items-end justify-center">
                 <Image
                   src="/about-branco.png"
                   alt="Santos Home Services LLC - Claudinei Santos"
                   fill
-                  className="object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.6)]"
+                  className="object-contain object-bottom drop-shadow-[0_25px_50px_rgba(0,0,0,0.7)]"
                   priority
                 />
               </div>
@@ -42,7 +42,7 @@ export function AboutSection({ currentLocale }: Props) {
                 whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="absolute -bottom-3 -right-2 sm:bottom-4 sm:right-0 z-20 flex items-center gap-3 rounded-2xl border border-[#00B050]/30 bg-[#001D2B]/95 px-4 py-3 shadow-[0_15px_35px_rgba(0,0,0,0.6)] backdrop-blur-md"
+                className="absolute -bottom-2 right-2 sm:bottom-6 sm:right-2 lg:bottom-4 lg:-right-4 z-20 flex items-center gap-3 rounded-2xl border border-[#00B050]/40 bg-[#001D2B]/95 px-4 py-3 shadow-[0_20px_45px_rgba(0,0,0,0.7)] backdrop-blur-md"
               >
                 {/* Ícone Estilo Selo / Roseta Verde */}
                 <div className="relative flex h-12 w-12 flex-shrink-0 items-center justify-center">
