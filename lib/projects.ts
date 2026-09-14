@@ -1,6 +1,6 @@
 export interface ProjectItem {
   id: string;
-  category: "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles";
+  category: "basement" | "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles";
   title: {
     en: string;
     pt: string;
@@ -13,6 +13,8 @@ export interface ProjectItem {
     es: string;
   };
   image: string;
+  beforeImage?: string;
+  afterImage?: string;
   description: {
     en: string;
     pt: string;
@@ -23,26 +25,34 @@ export interface ProjectItem {
 
 export const projectsData: ProjectItem[] = [
   {
-    id: "proj-1",
-    category: "deck",
+    id: "proj-basement-1",
+    category: "basement",
     title: {
-      en: "Custom Red Cedar Deck & Pergola",
-      pt: "Deck em Cedro Vermelho & Pérgola",
-      es: "Deck de Cedro Rojo & Pérgola",
+      en: "Modern Finished Basement Living Space",
+      pt: "Reforma Moderna de Espaço de Convivência no Porão",
+      es: "Remodelación Moderna de Sótano en Espacio Familiar",
     },
     location: "Danbury, CT",
     type: {
-      en: "Deck Renovation",
-      pt: "Reforma de Deck",
-      es: "Renovación de Deck",
+      en: "Basement Transformation",
+      pt: "Transformação de Porão",
+      es: "Transformación de Sótano",
     },
-    image: "/images/deck em cedro.png",
+    image: "/images/projects/basement-after.jpg",
+    beforeImage: "/images/projects/basement-before.jpg",
+    afterImage: "/images/projects/basement-after.jpg",
     description: {
-      en: "Complete structural deck engineering utilizing premium red cedar and weather-resistant composite materials. Features reinforced joists, custom hand-built pergola rafters, integrated perimeter bench seating, and safety handrails compliant with Connecticut building codes.",
-      pt: "Engenharia completa de deck estrutural utilizando cedro vermelho nobre e materiais compósitos de alta resistência às intempéries. Inclui vigas reforçadas, pérgola sob medida, bancos perimetrais integrados e guarda-corpos seguros de acordo com as normas construtivas de Connecticut.",
-      es: "Ingeniería integral de deck estructural con cedro rojo premium y materiales compuestos resistentes al clima. Incluye vigas reforzadas, pérgola a la medida, barandales de seguridad y acabados impecables según las normas de Connecticut.",
+      en: "This basement was transformed from an unfinished area into a clean, comfortable, and functional living space. The project features custom built-ins, a modern media wall, upgraded lighting, and refined finish details for everyday use and entertaining.",
+      pt: "Este porão foi transformado de uma área inacabada em um espaço de convivência limpo, confortável e totalmente funcional. O projeto conta com marcenaria sob medida embutida, uma parede multimídia moderna, iluminação embutida aprimorada e acabamentos refinados para uso diário e entretenimento.",
+      es: "Este sótano se transformó de un área rústica e inacabada a un espacio de estar limpio, cómodo y muy funcional. El proyecto incluye estanterías empotradas a medida, pared multimedia moderna, iluminación empotrada renovada y detalles refinados para el día a día y reuniones familiares.",
     },
-    highlights: ["Premium Red Cedar", "Pergola & Integrated Benches", "Code Compliant Framing", "Weather Sealing"],
+    highlights: [
+      "Custom Built-In Shelving",
+      "Media Wall Installation",
+      "Recessed Lighting Upgrade",
+      "Finished Ceiling Details",
+      "Warm & Functional Design",
+    ],
   },
   {
     id: "proj-2",

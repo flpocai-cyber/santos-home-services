@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, X, CheckCircle2, ShieldCheck } from "lucide-react";
+import { ArrowRight, MapPin, X, CheckCircle2, ShieldCheck, MoveHorizontal } from "lucide-react";
 import { projectsData, type ProjectItem } from "@/lib/projects";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -15,10 +15,22 @@ interface Props {
 export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
   const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [modalSliderPos, setModalSliderPos] = useState(50);
+  const [isDraggingModal, setIsDraggingModal] = useState(false);
+  const modalSliderRef = useRef<HTMLDivElement>(null);
   const t = translations[currentLocale].projects;
+
+  const handleModalMove = useCallback((clientX: number) => {
+    if (!modalSliderRef.current) return;
+    const rect = modalSliderRef.current.getBoundingClientRect();
+    const x = clientX - rect.left;
+    const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
+    setModalSliderPos(position);
+  }, []);
 
   const categories = [
     { key: "all", label: t.filters.all },
+    { key: "basement", label: (t.filters as any).basement || "BASEMENT" },
     { key: "deck", label: t.filters.deck },
     { key: "fence", label: t.filters.fence },
     { key: "framing", label: t.filters.framing },
@@ -89,7 +101,10 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               data-cursor="VIEW"
-              onClick={() => setSelectedProject(proj)}
+              onClick={() => {
+                setModalSliderPos(50);
+                setSelectedProject(proj);
+              }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#001D2B] shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#0089D0]/60 cursor-pointer"
             >
               <div className="relative h-64 w-full overflow-hidden bg-[#071820]">
@@ -106,6 +121,12 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                   <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
                   <span>{proj.location}</span>
                 </div>
+
+                {proj.beforeImage && proj.afterImage && (
+                  <div className="absolute top-4 right-4 flex items-center gap-1 rounded-md bg-[#0089D0]/90 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md backdrop-blur-md">
+                    <span>Antes / Depois</span>
+                  </div>
+                )}
               </div>
 
               {/* Info */}
@@ -113,7 +134,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                 <span className="text-xs font-bold uppercase tracking-widest text-[#0089D0]">
                   {proj.type[currentLocale]}
                 </span>
-                <h3 className="mt-1 text-lg font-bold text-white font-heading">
+                <h3 className="mt-1 text-lg font-bold text-white font-heading line-clamp-2">
                   {proj.title[currentLocale]}
                 </h3>
 
@@ -121,6 +142,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
+                      setModalSliderPos(50);
                       setSelectedProject(proj);
                     }}
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white transition hover:text-[#0089D0]"
@@ -135,7 +157,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
         </div>
       </div>
 
-      {/* POPUP MODAL COM GLASSMORFISMO REAL */}
+      {/* POPUP MODAL COM GLASSMORFISMO REAL E SLIDER ANTES/DEPOIS */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
           {/* Backdrop Blur */}
@@ -149,34 +171,96 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
             {/* Close Button */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#001D2B]/80 text-white border border-white/15 backdrop-blur-md transition hover:bg-[#0089D0] hover:scale-110"
+              className="absolute top-4 right-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-[#001D2B]/80 text-white border border-white/15 backdrop-blur-md transition hover:bg-[#0089D0] hover:scale-110"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
             </button>
 
-            {/* Modal Image */}
-            <div className="relative h-72 sm:h-88 w-full overflow-hidden bg-[#001D2B]">
-              <Image
-                src={selectedProject.image}
-                alt={selectedProject.title[currentLocale]}
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071820] via-transparent to-transparent" />
+            {/* Modal Image / Before & After Slider */}
+            {selectedProject.beforeImage && selectedProject.afterImage ? (
+              <div
+                ref={modalSliderRef}
+                onMouseDown={() => setIsDraggingModal(true)}
+                onMouseUp={() => setIsDraggingModal(false)}
+                onMouseLeave={() => setIsDraggingModal(false)}
+                onMouseMove={(e) => {
+                  if (isDraggingModal) handleModalMove(e.clientX);
+                }}
+                onTouchMove={(e) => handleModalMove(e.touches[0].clientX)}
+                className="relative h-72 sm:h-96 w-full select-none overflow-hidden bg-[#001D2B] cursor-ew-resize"
+              >
+                {/* AFTER IMAGE (Base) */}
+                <div className="absolute inset-0">
+                  <Image
+                    src={selectedProject.afterImage}
+                    alt={`${selectedProject.title[currentLocale]} - After`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute top-4 right-16 rounded-md bg-[#006A9E]/90 px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md z-10">
+                    {currentLocale === "pt" ? "DEPOIS" : currentLocale === "es" ? "DESPUÉS" : "AFTER"}
+                  </div>
+                </div>
 
-              {/* Tag & Location on Image */}
-              <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                <span className="rounded-full bg-[#0089D0] px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg">
-                  {selectedProject.type[currentLocale]}
-                </span>
-                <span className="flex items-center gap-1.5 rounded-full bg-[#001D2B]/85 px-3 py-1 text-xs font-semibold text-[#DDF3FF] border border-white/10 backdrop-blur-md">
-                  <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
-                  {selectedProject.location}
-                </span>
+                {/* BEFORE IMAGE (Clipped overlay) */}
+                <div
+                  className="absolute inset-0 overflow-hidden"
+                  style={{ width: `${modalSliderPos}%` }}
+                >
+                  <div className="relative h-full w-[100vw] max-w-3xl">
+                    <Image
+                      src={selectedProject.beforeImage}
+                      alt={`${selectedProject.title[currentLocale]} - Before`}
+                      fill
+                      className="object-cover"
+                      priority
+                    />
+                    <div className="absolute top-4 left-4 rounded-md bg-[#B91C1C]/90 px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md z-10">
+                      {currentLocale === "pt" ? "ANTES" : currentLocale === "es" ? "ANTES" : "BEFORE"}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Vertical Divider Bar */}
+                <div
+                  className="absolute top-0 bottom-0 z-20 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]"
+                  style={{ left: `${modalSliderPos}%` }}
+                >
+                  <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-[#0089D0] text-white shadow-xl border-2 border-white">
+                    <MoveHorizontal className="h-4 w-4" />
+                  </div>
+                </div>
+
+                {/* Drag Hint Badge */}
+                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 rounded-full bg-[#001D2B]/85 px-3 py-1 text-[11px] font-bold tracking-wider text-[#DDF3FF] border border-[#0089D0]/30 shadow-lg backdrop-blur-md">
+                  ↔ {currentLocale === "pt" ? "Arraste para comparar" : currentLocale === "es" ? "Arrastre para comparar" : "Drag to compare"}
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="relative h-72 sm:h-88 w-full overflow-hidden bg-[#001D2B]">
+                <Image
+                  src={selectedProject.image}
+                  alt={selectedProject.title[currentLocale]}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071820] via-transparent to-transparent" />
+
+                {/* Tag & Location on Image */}
+                <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                  <span className="rounded-full bg-[#0089D0] px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg">
+                    {selectedProject.type[currentLocale]}
+                  </span>
+                  <span className="flex items-center gap-1.5 rounded-full bg-[#001D2B]/85 px-3 py-1 text-xs font-semibold text-[#DDF3FF] border border-white/10 backdrop-blur-md">
+                    <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
+                    {selectedProject.location}
+                  </span>
+                </div>
+              </div>
+            )}
 
             {/* Modal Details */}
             <div className="p-6 sm:p-8">

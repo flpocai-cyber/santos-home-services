@@ -153,6 +153,7 @@ export const translations = {
       viewProject: "VIEW PROJECT",
       filters: {
         all: "ALL",
+        basement: "BASEMENT",
         deck: "DECK",
         fence: "FENCE",
         framing: "FRAMING",
@@ -439,6 +440,7 @@ export const translations = {
       viewProject: "VER PROJETO",
       filters: {
         all: "TODOS",
+        basement: "PORÃO",
         deck: "DECK",
         fence: "CERCA",
         framing: "FRAMING",
@@ -725,6 +727,7 @@ export const translations = {
       viewProject: "VER PROYECTO",
       filters: {
         all: "TODOS",
+        basement: "SÓTANO",
         deck: "DECK",
         fence: "CERCA",
         framing: "FRAMING",
