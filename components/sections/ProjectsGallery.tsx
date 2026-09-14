@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState, useRef, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, MapPin, X, CheckCircle2, ShieldCheck, MoveHorizontal } from "lucide-react";
+import { ArrowRight, MapPin, X, CheckCircle2, ShieldCheck, ChevronLeft, ChevronRight } from "lucide-react";
 import { projectsData, type ProjectItem } from "@/lib/projects";
 import { translations, type Locale } from "@/lib/translations";
 
@@ -15,18 +15,29 @@ interface Props {
 export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
   const [filter, setFilter] = useState("all");
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
-  const [modalSliderPos, setModalSliderPos] = useState(50);
-  const [isDraggingModal, setIsDraggingModal] = useState(false);
-  const modalSliderRef = useRef<HTMLDivElement>(null);
+  const [modalImageIndex, setModalImageIndex] = useState(0);
+  const [isPausedModal, setIsPausedModal] = useState(false);
   const t = translations[currentLocale].projects;
 
-  const handleModalMove = useCallback((clientX: number) => {
-    if (!modalSliderRef.current) return;
-    const rect = modalSliderRef.current.getBoundingClientRect();
-    const x = clientX - rect.left;
-    const position = Math.max(0, Math.min(100, (x / rect.width) * 100));
-    setModalSliderPos(position);
-  }, []);
+  // Troca automática das fotos a cada 3 segundos
+  useEffect(() => {
+    if (!selectedProject || isPausedModal) return;
+
+    const galleryImages =
+      selectedProject.images && selectedProject.images.length > 0
+        ? selectedProject.images
+        : selectedProject.beforeImage && selectedProject.afterImage
+        ? [selectedProject.beforeImage, selectedProject.afterImage]
+        : [selectedProject.image];
+
+    if (galleryImages.length <= 1) return;
+
+    const timer = setInterval(() => {
+      setModalImageIndex((prev) => (prev + 1) % galleryImages.length);
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, [selectedProject, isPausedModal]);
 
   const categories = [
     { key: "all", label: t.filters.all },
@@ -102,7 +113,8 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
               transition={{ duration: 0.5, delay: idx * 0.08 }}
               data-cursor="VIEW"
               onClick={() => {
-                setModalSliderPos(50);
+                setModalImageIndex(0);
+                setIsPausedModal(false);
                 setSelectedProject(proj);
               }}
               className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#001D2B] shadow-xl transition-all duration-300 hover:-translate-y-2 hover:border-[#0089D0]/60 cursor-pointer"
@@ -142,7 +154,8 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                      setModalSliderPos(50);
+                      setModalImageIndex(0);
+                      setIsPausedModal(false);
                       setSelectedProject(proj);
                     }}
                     className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white transition hover:text-[#0089D0]"
@@ -177,90 +190,116 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
               <X className="h-5 w-5" />
             </button>
 
-            {/* Modal Image / Before & After Slider */}
-            {selectedProject.beforeImage && selectedProject.afterImage ? (
-              <div
-                ref={modalSliderRef}
-                onMouseDown={() => setIsDraggingModal(true)}
-                onMouseUp={() => setIsDraggingModal(false)}
-                onMouseLeave={() => setIsDraggingModal(false)}
-                onMouseMove={(e) => {
-                  if (isDraggingModal) handleModalMove(e.clientX);
-                }}
-                onTouchMove={(e) => handleModalMove(e.touches[0].clientX)}
-                className="relative h-72 sm:h-96 w-full select-none overflow-hidden bg-[#001D2B] cursor-ew-resize"
-              >
-                {/* AFTER IMAGE (Base) */}
-                <div className="absolute inset-0">
+            {/* Modal Image Gallery with 3-second autoplay & navigation arrows */}
+            {(() => {
+              const galleryImages =
+                selectedProject.images && selectedProject.images.length > 0
+                  ? selectedProject.images
+                  : selectedProject.beforeImage && selectedProject.afterImage
+                  ? [selectedProject.beforeImage, selectedProject.afterImage]
+                  : [selectedProject.image];
+
+              const isMulti = galleryImages.length > 1;
+
+              return (
+                <div
+                  onMouseEnter={() => setIsPausedModal(true)}
+                  onMouseLeave={() => setIsPausedModal(false)}
+                  className="relative h-72 sm:h-96 w-full select-none overflow-hidden bg-[#001D2B]"
+                >
                   <Image
-                    src={selectedProject.afterImage}
-                    alt={`${selectedProject.title[currentLocale]} - After`}
+                    key={modalImageIndex}
+                    src={galleryImages[modalImageIndex % galleryImages.length]}
+                    alt={`${selectedProject.title[currentLocale]} - ${modalImageIndex + 1}`}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-all duration-700 ease-in-out"
                     priority
                   />
-                  <div className="absolute top-4 right-16 rounded-md bg-[#006A9E]/90 px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md z-10">
-                    {currentLocale === "pt" ? "DEPOIS" : currentLocale === "es" ? "DESPUÉS" : "AFTER"}
-                  </div>
-                </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071820] via-transparent to-transparent pointer-events-none" />
 
-                {/* BEFORE IMAGE (Clipped overlay) */}
-                <div
-                  className="absolute inset-0 overflow-hidden"
-                  style={{ width: `${modalSliderPos}%` }}
-                >
-                  <div className="relative h-full w-[100vw] max-w-3xl">
-                    <Image
-                      src={selectedProject.beforeImage}
-                      alt={`${selectedProject.title[currentLocale]} - Before`}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
-                    <div className="absolute top-4 left-4 rounded-md bg-[#B91C1C]/90 px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md z-10">
-                      {currentLocale === "pt" ? "ANTES" : currentLocale === "es" ? "ANTES" : "BEFORE"}
+                  {/* Badges: Tag e Localização */}
+                  <div className="absolute bottom-4 left-6 flex items-center gap-2.5 z-20">
+                    <span className="rounded-full bg-[#0089D0] px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg">
+                      {selectedProject.type[currentLocale]}
+                    </span>
+                    <span className="flex items-center gap-1.5 rounded-full bg-[#001D2B]/85 px-3 py-1 text-xs font-semibold text-[#DDF3FF] border border-white/10 backdrop-blur-md">
+                      <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
+                      {selectedProject.location}
+                    </span>
+                  </div>
+
+                  {/* Selo de Antes / Depois quando houver 2 fotos */}
+                  {isMulti && galleryImages.length === 2 && (
+                    <div className="absolute top-4 left-4 z-20">
+                      <span
+                        className={`rounded-lg px-3 py-1 text-xs font-extrabold tracking-wider text-white shadow-lg backdrop-blur-md transition-colors ${
+                          modalImageIndex % 2 === 0
+                            ? "bg-[#B91C1C]/90"
+                            : "bg-[#0089D0]/90"
+                        }`}
+                      >
+                        {modalImageIndex % 2 === 0
+                          ? currentLocale === "pt"
+                            ? "ANTES"
+                            : currentLocale === "es"
+                            ? "ANTES"
+                            : "BEFORE"
+                          : currentLocale === "pt"
+                          ? "DEPOIS"
+                          : currentLocale === "es"
+                          ? "DESPUÉS"
+                          : "AFTER"}
+                      </span>
                     </div>
-                  </div>
-                </div>
+                  )}
 
-                {/* Vertical Divider Bar */}
-                <div
-                  className="absolute top-0 bottom-0 z-20 w-1 bg-white shadow-[0_0_15px_rgba(255,255,255,0.8)]"
-                  style={{ left: `${modalSliderPos}%` }}
-                >
-                  <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-[#0089D0] text-white shadow-xl border-2 border-white">
-                    <MoveHorizontal className="h-4 w-4" />
-                  </div>
-                </div>
+                  {/* Setas de Seleção Prev / Next */}
+                  {isMulti && (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalImageIndex(
+                            (prev) => (prev - 1 + galleryImages.length) % galleryImages.length
+                          );
+                        }}
+                        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#001D2B]/80 text-white border border-white/15 backdrop-blur-md transition-all hover:bg-[#0089D0] hover:scale-110 active:scale-95"
+                        aria-label="Previous photo"
+                      >
+                        <ChevronLeft className="h-5 w-5" />
+                      </button>
 
-                {/* Drag Hint Badge */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 rounded-full bg-[#001D2B]/85 px-3 py-1 text-[11px] font-bold tracking-wider text-[#DDF3FF] border border-[#0089D0]/30 shadow-lg backdrop-blur-md">
-                  ↔ {currentLocale === "pt" ? "Arraste para comparar" : currentLocale === "es" ? "Arrastre para comparar" : "Drag to compare"}
-                </div>
-              </div>
-            ) : (
-              <div className="relative h-72 sm:h-88 w-full overflow-hidden bg-[#001D2B]">
-                <Image
-                  src={selectedProject.image}
-                  alt={selectedProject.title[currentLocale]}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071820] via-transparent to-transparent" />
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          setModalImageIndex((prev) => (prev + 1) % galleryImages.length);
+                        }}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-[#001D2B]/80 text-white border border-white/15 backdrop-blur-md transition-all hover:bg-[#0089D0] hover:scale-110 active:scale-95"
+                        aria-label="Next photo"
+                      >
+                        <ChevronRight className="h-5 w-5" />
+                      </button>
 
-                {/* Tag & Location on Image */}
-                <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                  <span className="rounded-full bg-[#0089D0] px-3.5 py-1 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg">
-                    {selectedProject.type[currentLocale]}
-                  </span>
-                  <span className="flex items-center gap-1.5 rounded-full bg-[#001D2B]/85 px-3 py-1 text-xs font-semibold text-[#DDF3FF] border border-white/10 backdrop-blur-md">
-                    <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
-                    {selectedProject.location}
-                  </span>
+                      {/* Indicadores de bolinha com timer visual */}
+                      <div className="absolute bottom-4 right-6 z-20 flex items-center gap-1.5">
+                        {galleryImages.map((_, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setModalImageIndex(i)}
+                            className={`h-2 rounded-full transition-all duration-300 ${
+                              modalImageIndex % galleryImages.length === i
+                                ? "w-6 bg-[#0089D0]"
+                                : "w-2 bg-white/40 hover:bg-white"
+                            }`}
+                            aria-label={`Go to slide ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
                 </div>
-              </div>
-            )}
+              );
+            })()}
 
             {/* Modal Details */}
             <div className="p-6 sm:p-8">

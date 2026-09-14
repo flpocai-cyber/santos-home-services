@@ -13,6 +13,7 @@ export interface ProjectItem {
     es: string;
   };
   image: string;
+  images?: string[];
   beforeImage?: string;
   afterImage?: string;
   description: {
@@ -38,9 +39,13 @@ export const projectsData: ProjectItem[] = [
       pt: "Transformação de Porão",
       es: "Transformación de Sótano",
     },
-    image: "/images/projects/basement-after.jpg",
-    beforeImage: "/images/projects/basement-before.jpg",
-    afterImage: "/images/projects/basement-after.jpg",
+    image: "/SERVICES/Modern Finished Basement Living Space/2.jpg",
+    images: [
+      "/SERVICES/Modern Finished Basement Living Space/1.jpg",
+      "/SERVICES/Modern Finished Basement Living Space/2.jpg",
+    ],
+    beforeImage: "/SERVICES/Modern Finished Basement Living Space/1.jpg",
+    afterImage: "/SERVICES/Modern Finished Basement Living Space/2.jpg",
     description: {
       en: "This basement was transformed from an unfinished area into a clean, comfortable, and functional living space. The project features custom built-ins, a modern media wall, upgraded lighting, and refined finish details for everyday use and entertaining.",
       pt: "Este porão foi transformado de uma área inacabada em um espaço de convivência limpo, confortável e totalmente funcional. O projeto conta com marcenaria sob medida embutida, uma parede multimídia moderna, iluminação embutida aprimorada e acabamentos refinados para uso diário e entretenimento.",
