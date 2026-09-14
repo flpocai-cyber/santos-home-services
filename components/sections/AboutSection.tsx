@@ -55,9 +55,23 @@ export function AboutSection({ currentLocale }: Props) {
               {t.p1}
             </p>
 
-            <p className="mt-4 text-base leading-relaxed text-[#DDF3FF]/85 sm:text-lg">
-              {t.p2}
-            </p>
+            {t.p2 && (
+              <p className="mt-4 text-base leading-relaxed text-[#DDF3FF]/85 sm:text-lg">
+                {t.p2}
+              </p>
+            )}
+
+            {t.p3 && (
+              <p className="mt-4 text-base leading-relaxed text-[#DDF3FF]/85 sm:text-lg">
+                {t.p3}
+              </p>
+            )}
+
+            {t.p4 && (
+              <p className="mt-4 text-base leading-relaxed text-[#DDF3FF]/85 sm:text-lg font-medium text-white">
+                {t.p4}
+              </p>
+            )}
 
             {/* Three Number Counters with Animated Growth */}
             <div className="mt-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
