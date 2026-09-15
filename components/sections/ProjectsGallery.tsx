@@ -167,7 +167,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
 
       {/* POPUP MODAL COM GLASSMORFISMO REAL E SLIDER ANTES/DEPOIS */}
       {selectedProject && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-8">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 lg:p-8">
           {/* Backdrop Blur */}
           <div
             onClick={() => setSelectedProject(null)}
@@ -175,11 +175,11 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
           />
 
           {/* Modal Card */}
-          <div className="relative z-10 w-full max-w-3xl overflow-hidden rounded-3xl border border-[#0089D0]/30 bg-[#071820]/95 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl animate-in zoom-in-95 duration-200">
-            {/* Close Button */}
+          <div className="relative z-10 w-full max-w-2xl lg:max-w-3xl max-h-[90vh] flex flex-col overflow-y-auto rounded-2xl sm:rounded-3xl border border-[#0089D0]/30 bg-[#071820]/98 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl animate-in zoom-in-95 duration-200">
+            {/* Close Button - Sticky/Fixed relative to card corner */}
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-4 right-4 z-30 flex h-10 w-10 items-center justify-center rounded-full bg-[#001D2B]/80 text-white border border-white/15 backdrop-blur-md transition hover:bg-[#0089D0] hover:scale-110"
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-40 flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-full bg-[#001D2B]/90 text-white border border-white/20 backdrop-blur-md transition hover:bg-[#0089D0] hover:scale-110 shadow-lg cursor-pointer"
               aria-label="Close modal"
             >
               <X className="h-5 w-5" />
@@ -200,7 +200,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                 <div
                   onMouseEnter={() => setIsPausedModal(true)}
                   onMouseLeave={() => setIsPausedModal(false)}
-                  className="relative h-72 sm:h-96 w-full select-none overflow-hidden bg-[#001D2B]"
+                  className="relative h-52 sm:h-80 lg:h-96 w-full flex-shrink-0 select-none overflow-hidden bg-[#001D2B]"
                 >
                   <Image
                     key={modalImageIndex}
@@ -305,32 +305,32 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
             })()}
 
             {/* Modal Details */}
-            <div className="p-6 sm:p-8">
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-heading">
+            <div className="p-5 sm:p-8 flex-1">
+              <h3 className="text-xl sm:text-3xl font-extrabold text-white font-heading">
                 {selectedProject.title[currentLocale]}
               </h3>
 
-              <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#DDF3FF]/85">
+              <p className="mt-3 sm:mt-4 text-xs sm:text-base leading-relaxed text-[#DDF3FF]/85">
                 {selectedProject.description[currentLocale]}
               </p>
 
               {/* Highlights Pill Badges */}
-              <div className="mt-6 flex flex-wrap items-center gap-2">
+              <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-1.5 sm:gap-2">
                 {selectedProject.highlights.map((h, i) => (
                   <span
                     key={i}
-                    className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-[#001D2B] px-3 py-1.5 text-xs font-semibold text-[#DDF3FF]"
+                    className="flex items-center gap-1.5 rounded-lg border border-white/10 bg-[#001D2B] px-2.5 py-1 sm:px-3 sm:py-1.5 text-[11px] sm:text-xs font-semibold text-[#DDF3FF]"
                   >
-                    <CheckCircle2 className="h-3.5 w-3.5 text-[#0089D0]" />
+                    <CheckCircle2 className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-[#0089D0]" />
                     {h}
                   </span>
                 ))}
               </div>
 
               {/* Action Buttons: Get a Quote */}
-              <div className="mt-8 flex items-center justify-between border-t border-white/10 pt-6">
-                <div className="flex items-center gap-2 text-xs font-semibold text-[#DDF3FF]/70">
-                  <ShieldCheck className="h-4 w-4 text-[#0089D0]" />
+              <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-center justify-between border-t border-white/10 pt-4 sm:pt-6 gap-3 sm:gap-4">
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-[#DDF3FF]/70">
+                  <ShieldCheck className="h-4 w-4 text-[#0089D0] flex-shrink-0" />
                   <span>Licensed Home Improvement Contractor</span>
                 </div>
 
@@ -340,7 +340,7 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                     setSelectedProject(null);
                     onOpenQuote(projectType);
                   }}
-                  className="rounded-full bg-gradient-to-r from-[#006A9E] to-[#0089D0] px-7 py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-xl shadow-[#0089D0]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap"
+                  className="rounded-full bg-gradient-to-r from-[#006A9E] to-[#0089D0] px-6 py-3 sm:px-7 sm:py-3.5 text-xs sm:text-sm font-extrabold uppercase tracking-wider text-white shadow-xl shadow-[#0089D0]/30 transition-all hover:scale-105 active:scale-95 whitespace-nowrap text-center"
                 >
                   Get a Quote
                 </button>
