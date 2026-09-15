@@ -15,12 +15,16 @@ export function Footer({ currentLocale, onSelectLocale }: Props) {
   const currentYear = new Date().getFullYear();
 
   const services = [
-    "Finish Carpentry",
-    "Deck Construction & Repair",
-    "Fence Installation & Repair",
-    "Framing",
-    "Interior & Exterior Painting",
-    "Drywall Installation & Repair",
+    { label: "Finish Carpentry", href: "/services/finish-carpentry/" },
+    { label: "Deck Construction & Repair", href: "/services/deck-construction/" },
+    { label: "Fence Installation & Repair", href: "/services/fence-installation/" },
+    { label: "Framing", href: "/services/framing/" },
+    { label: "Interior & Exterior Painting", href: "/services/painting/" },
+    { label: "Drywall Installation & Repair", href: "/services/drywall/" },
+    { label: "Hardwood & Vinyl Flooring", href: "/services/flooring/" },
+    { label: "Custom Tile Installation", href: "/services/tile-installation/" },
+    { label: "Basement Remodeling", href: "/services/basement-remodeling/" },
+    { label: "Bathroom Remodeling", href: "/services/bathroom-remodeling/" },
   ];
 
   const quickLinks = [
@@ -87,9 +91,9 @@ export function Footer({ currentLocale, onSelectLocale }: Props) {
             </h4>
             <ul className="mt-4 space-y-2.5 text-xs">
               {services.map((s) => (
-                <li key={s}>
-                  <a href="#services" className="transition hover:text-[#0089D0]">
-                    {s}
+                <li key={s.href}>
+                  <a href={s.href} className="transition hover:text-[#0089D0]">
+                    {s.label}
                   </a>
                 </li>
               ))}
