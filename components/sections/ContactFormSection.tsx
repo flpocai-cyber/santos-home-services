@@ -28,39 +28,59 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
     const formData = new FormData(e.currentTarget);
     const honeypot = formData.get("company_url");
     if (honeypot) {
-      // Honeypot triggered
       setLoading(false);
       setSubmitted(true);
       return;
     }
 
+    const fullName = (formData.get("fullName") as string) || "";
+    const phone = (formData.get("phone") as string) || "";
+    const email = (formData.get("email") as string) || "";
+    const address = (formData.get("address") as string) || "";
+    const city = (formData.get("city") as string) || "";
+    const description = (formData.get("description") as string) || "";
+
+    // Build pre-filled email client link
+    const recipientEmail = "Santoshomeservices2026@gmail.com";
+    const subject = encodeURIComponent(`Free Quote Request: ${fullName} - ${service}`);
+    const emailBody = encodeURIComponent(
+      `Hello Santos Home Services,\n\n` +
+      `I would like to request a free quote for my project:\n\n` +
+      `• Full Name: ${fullName}\n` +
+      `• Phone: ${phone}\n` +
+      `• Email: ${email}\n` +
+      `• Project Address: ${address ? address + ", " : ""}${city}\n` +
+      `• Service Needed: ${service}\n` +
+      `• Preferred Contact Method: ${preferredContact}\n` +
+      `• Project Description: ${description || "N/A"}\n\n` +
+      `Thank you!`
+    );
+
+    const mailtoUrl = `mailto:${recipientEmail}?subject=${subject}&body=${emailBody}`;
+
+    // Also send to API in background
     try {
-      const response = await fetch("/api/contact", {
+      fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName: formData.get("fullName"),
-          phone: formData.get("phone"),
-          email: formData.get("email"),
-          address: formData.get("address"),
-          city: formData.get("city"),
-          service: service,
-          preferredContact: preferredContact,
-          description: formData.get("description"),
+          fullName,
+          phone,
+          email,
+          address,
+          city,
+          service,
+          preferredContact,
+          description,
         }),
-      });
+      }).catch(() => {});
+    } catch {}
 
-      if (!response.ok) {
-        throw new Error("Failed to send quote request.");
-      }
+    // Open user's email client directly
+    window.location.href = mailtoUrl;
 
-      setSubmitted(true);
-    } catch {
-      // Fallback graceful success
-      setSubmitted(true);
-    } finally {
-      setLoading(false);
-    }
+    setSubmitted(true);
+    setLoading(false);
   };
 
   const whatsappUrl =
