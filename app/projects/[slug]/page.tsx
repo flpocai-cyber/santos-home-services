@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = seoProjectsList.find((p) => p.slug === slug);
   if (!project) return {};
 
-  const title = `${project.title.en} | ${project.location} Renovation Project`;
+  const title = `${project.title.en} | Connecticut Renovation Project`;
   const description = `${project.description.en} Completed by Santos Home Services LLC, licensed Home Improvement Contractor (HIC.0705313).`;
   const url = `${siteConfig.domain}/projects/${project.slug}/`;
 
@@ -69,7 +69,7 @@ export default async function ProjectDetailPage({ params }: Props) {
         },
         locationCreated: {
           "@type": "Place",
-          name: project.location,
+          name: "Connecticut",
         },
         image: galleryImages.map((img) => `${siteConfig.domain}${img}`),
       },
@@ -122,7 +122,7 @@ export default async function ProjectDetailPage({ params }: Props) {
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#0089D0]">
               <MapPin className="h-4 w-4" />
-              <span>{project.location}</span>
+              <span>Connecticut</span>
               <span>•</span>
               <span>{project.type.en}</span>
             </div>

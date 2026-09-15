@@ -1,4 +1,4 @@
-export interface ProjectItem {
+﻿export interface ProjectItem {
   id: string;
   category: "basement" | "deck" | "fence" | "framing" | "paint" | "drywall" | "carpentry" | "flooring" | "tiles" | "bathroom";
   title: {
@@ -34,7 +34,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Reforma Moderna de Espaço de Convivência no Porão",
       es: "Remodelación Moderna de Sótano en Espacio Familiar",
     },
-    location: "Danbury, CT",
+    location: "Connecticut",
     type: {
       en: "Basement Transformation",
       pt: "Transformação de Porão",
@@ -68,7 +68,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Muro de Contenção Sob Medida & Paisagismo de Quintal",
       es: "Muro de Contención a Medida & Jardinería de Patio",
     },
-    location: "Ridgefield, CT",
+    location: "Connecticut",
     type: {
       en: "Landscaping & Retaining Wall",
       pt: "Paisagismo & Muro de Contenção",
@@ -104,7 +104,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Rampa de Acessibilidade Sob Medida",
       es: "Rampa de Accesibilidad a Medida",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Accessibility Upgrade",
       pt: "Melhoria de Acessibilidade",
@@ -140,7 +140,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Reforma Moderna de Banheiro",
       es: "Remodelación Moderna de Baño",
     },
-    location: "Brookfield, CT",
+    location: "Connecticut",
     type: {
       en: "Bathroom Renovation",
       pt: "Reforma de Banheiro",
@@ -174,7 +174,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Reforma Completa de Porão & Espaço de Convivência",
       es: "Remodelación Integral de Sótano en Espacio Familiar",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Basement Renovation",
       pt: "Reforma de Porão",
@@ -213,7 +213,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Deck Elevado em Composite com Guarda-Corpo Moderno",
       es: "Deck Elevado de Compuesto con Barandales Modernos",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Deck Renovation",
       pt: "Reforma & Construção de Deck",
@@ -251,7 +251,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Transformação de Área de Mezanino / Loft Aberto",
       es: "Transformación de Área de Mezanina / Loft Abierto",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Loft Renovation",
       pt: "Reforma de Mezanino",
@@ -288,7 +288,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Pintura Interna & Renovação de Ambientes",
       es: "Pintura Interior & Renovación de Ambientes",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Interior Painting",
       pt: "Pintura Interna",
@@ -324,7 +324,7 @@ export const projectsData: ProjectItem[] = [
       pt: "Deck à Beira da Piscina & Espaço Lounge",
       es: "Deck Junto a la Piscina & Área Lounge",
     },
-    location: "Fairfield County, CT",
+    location: "Connecticut",
     type: {
       en: "Deck Renovation",
       pt: "Reforma de Deck",

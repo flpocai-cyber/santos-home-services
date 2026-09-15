@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, MapPin, CheckCircle2 } from "lucide-react";
@@ -91,7 +91,7 @@ export default function ProjectsIndexPage() {
                   <div>
                     <div className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#0089D0]">
                       <MapPin className="h-3.5 w-3.5" />
-                      <span>{proj.location}</span>
+                      <span>Connecticut</span>
                     </div>
                     <h2 className="mt-2 text-lg font-bold text-white transition-colors duration-200 group-hover:text-[#0089D0] font-heading">
                       {proj.title.en}

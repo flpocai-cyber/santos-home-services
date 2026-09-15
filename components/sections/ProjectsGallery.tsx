@@ -129,12 +129,6 @@ export function ProjectsGallery({ currentLocale, onOpenQuote }: Props) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#001D2B] via-[#001D2B]/30 to-transparent" />
 
-                {/* Location Badge */}
-                <div className="absolute top-4 left-4 flex items-center gap-1.5 rounded-md bg-[#001D2B]/85 px-3 py-1 text-xs font-bold text-[#DDF3FF] border border-white/10 backdrop-blur-md">
-                  <MapPin className="h-3.5 w-3.5 text-[#0089D0]" />
-                  <span>{proj.location}</span>
-                </div>
-
                 {proj.beforeImage && proj.afterImage && (
                   <div className="absolute top-4 right-4 flex items-center gap-1 rounded-md bg-[#0089D0]/90 px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wider text-white shadow-md backdrop-blur-md">
                     <span>Antes / Depois</span>

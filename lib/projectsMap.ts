@@ -10,47 +10,47 @@ export const projectSlugMapping: Record<string, { slug: string; serviceSlug: str
   "proj-basement-1": {
     slug: "basement-transformation-danbury-ct",
     serviceSlug: "basement-remodeling",
-    city: "Danbury, CT",
+    city: "Connecticut",
   },
   "proj-retaining-wall-1": {
     slug: "backyard-retaining-wall-ridgefield-ct",
     serviceSlug: "finish-carpentry",
-    city: "Ridgefield, CT",
+    city: "Connecticut",
   },
   "proj-accessibility-ramp-1": {
     slug: "accessibility-ramp-connecticut",
     serviceSlug: "deck-construction",
-    city: "Fairfield County, CT",
+    city: "Connecticut",
   },
   "proj-bathroom-remodel-1": {
     slug: "bathroom-remodel-brookfield-ct",
     serviceSlug: "bathroom-remodeling",
-    city: "Brookfield, CT",
+    city: "Connecticut",
   },
   "proj-basement-finishing-full": {
     slug: "finished-basement-fairfield-county",
     serviceSlug: "basement-remodeling",
-    city: "Danbury, CT",
+    city: "Connecticut",
   },
   "proj-deck-composite-1": {
     slug: "composite-deck-fairfield-county",
     serviceSlug: "deck-construction",
-    city: "Fairfield County, CT",
+    city: "Connecticut",
   },
   "proj-loft-renovation-1": {
     slug: "open-loft-renovation-connecticut",
     serviceSlug: "framing",
-    city: "Fairfield County, CT",
+    city: "Connecticut",
   },
   "proj-interior-painting-1": {
     slug: "interior-painting-connecticut",
     serviceSlug: "painting",
-    city: "Danbury, CT",
+    city: "Connecticut",
   },
   "proj-poolside-deck-1": {
     slug: "poolside-deck-connecticut",
     serviceSlug: "deck-construction",
-    city: "Fairfield County, CT",
+    city: "Connecticut",
   },
 };
 

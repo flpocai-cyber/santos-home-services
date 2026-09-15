@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -263,7 +263,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                     </div>
                     <div className="p-5">
                       <span className="text-[11px] font-bold uppercase text-[#0089D0]">
-                        {proj.location}
+                        Connecticut
                       </span>
                       <h3 className="mt-1 text-base font-bold text-white font-heading">
                         {proj.title.en}
