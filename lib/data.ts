@@ -1,4 +1,4 @@
-﻿export interface PracticeArea {
+export interface PracticeArea {
   id: string;
   title: string;
   subtitle: string;
@@ -42,14 +42,14 @@ export interface BlogPost {
 }
 
 export const OFFICE_INFO = {
-  name: "Valença & Associados",
-  tagline: "Advocacia Estratégica & Soluções Jurídicas de Alta Complexidade",
-  phone: "(11) 3450-8900",
-  whatsapp: "5511999887766",
-  email: "contato@valencaadvocacia.com.br",
-  address: "Av. Brigadeiro Faria Lima, 3477 - 14º Andar - Itaim Bibi, São Paulo - SP",
-  openingHours: "Segunda a Sexta, das 09h às 19h",
-  oabRegistration: "OAB/SP 14.892",
+  name: "Santos Home Services LLC",
+  tagline: "Quality Craftsmanship & Home Improvement",
+  phone: "(475) 251-6504",
+  whatsapp: "14752516504",
+  email: "Santoshomeservices2026@gmail.com",
+  address: "95 Main St Apt 2B - Danbury, CT 06810",
+  openingHours: "Monday to Saturday, 7:00 AM - 6:00 PM",
+  license: "HIC.0694862",
 };
 
 export const PRACTICE_AREAS: PracticeArea[] = [
