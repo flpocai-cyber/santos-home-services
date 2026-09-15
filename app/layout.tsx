@@ -70,7 +70,7 @@ export default function RootLayout({
     name: "Santos Home Services LLC",
     image: "https://santoshomeimprovement.com/images/SANTOS LOGO.png",
     telephone: "+14752516504",
-    email: "contact@santoshomeimprovement.com",
+    email: "Santoshomeservices2026@gmail.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "95 Main St Apt 2B",

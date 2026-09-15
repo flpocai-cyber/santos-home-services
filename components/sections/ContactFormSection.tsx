@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, CheckCircle2, AlertCircle, Phone, MessageSquare, MessageCircle, MapPin } from "lucide-react";
+import { Send, CheckCircle2, AlertCircle, Phone, MessageSquare, MessageCircle, MapPin, Mail } from "lucide-react";
 import { translations, type Locale } from "@/lib/translations";
 
 interface Props {
@@ -307,6 +307,15 @@ export function ContactFormSection({ currentLocale, preselectedService }: Props)
               </p>
               <p className="mt-1 text-base font-bold text-[#0089D0]">
                 (475) 251-6504
+              </p>
+              <p className="mt-1 text-sm font-semibold text-[#DDF3FF] flex items-center gap-1.5">
+                <Mail className="h-4 w-4 text-[#0089D0] flex-shrink-0" />
+                <a
+                  href="mailto:Santoshomeservices2026@gmail.com"
+                  className="hover:text-[#0089D0] transition-colors break-all"
+                >
+                  Santoshomeservices2026@gmail.com
+                </a>
               </p>
 
               {/* Embedded Google Map */}

@@ -13,7 +13,7 @@ export async function POST(req: Request) {
       );
     }
 
-    const contactEmail = process.env.CONTACT_EMAIL || "contact@santoshomeimprovement.com";
+    const contactEmail = process.env.CONTACT_EMAIL || "Santoshomeservices2026@gmail.com";
     const resendApiKey = process.env.RESEND_API_KEY;
 
     console.log("=== NEW QUOTE REQUEST RECEIVED ===");

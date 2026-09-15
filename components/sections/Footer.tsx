@@ -70,6 +70,13 @@ export function Footer({ currentLocale, onSelectLocale }: Props) {
               >
                 <Phone className="h-4 w-4" />
               </a>
+              <a
+                href="mailto:Santoshomeservices2026@gmail.com"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#071820] text-[#0089D0] transition hover:bg-[#0089D0] hover:text-white"
+                aria-label="Email"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
             </div>
           </div>
 
@@ -120,6 +127,15 @@ export function Footer({ currentLocale, onSelectLocale }: Props) {
                 <Phone className="h-3.5 w-3.5 text-[#0089D0] flex-shrink-0" />
                 <a href="tel:+14752516504" className="font-bold text-white hover:text-[#0089D0]">
                   (475) 251-6504
+                </a>
+              </p>
+              <p className="flex items-center gap-1.5">
+                <Mail className="h-3.5 w-3.5 text-[#0089D0] flex-shrink-0" />
+                <a
+                  href="mailto:Santoshomeservices2026@gmail.com"
+                  className="font-bold text-white hover:text-[#0089D0] break-all"
+                >
+                  Santoshomeservices2026@gmail.com
                 </a>
               </p>
             </div>
